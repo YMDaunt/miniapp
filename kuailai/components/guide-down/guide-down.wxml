@@ -1,0 +1,22 @@
+<header title="APP下载" showBack="true"></header>
+<view class="content">
+    <text class="h3">下载办法：</text>
+    
+    <view class="section s1">
+        <view class="title">
+            <text class="red">方式1 </text>
+            <text>点击“进入客服”, 发送信息“1”, 点击收到的消息下载APP</text>
+        </view>
+
+        <button class="btn" open-type="contact" hover-class="btn-hover">进入客服</button>
+    </view>
+
+    <view class="section s2">
+        <view class="title">
+            <text class="red">方式2 </text>
+            <text>点击“复制链接”,在手机浏览器粘贴并打开</text>
+        </view>
+
+        <button class="btn" hover-class="btn-hover" bindtap="copy">复制链接</button>
+    </view>
+</view>

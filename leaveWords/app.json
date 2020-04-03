@@ -1,0 +1,17 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/comment/comment",
+    "pages/poster/poster"
+  ],
+  "window":{
+    "navigationBarBackgroundColor": "#1c1541",
+    "navigationBarTextStyle": "white",
+    "navigationBarTitleText": "",
+    "backgroundColor": "#ffffff",
+    "backgroundTextStyle": "light"
+  },
+  "navigateToMiniProgramAppIdList": [
+    "wx3490aef65724e32d"
+  ]
+}

@@ -1,0 +1,471 @@
+/* pages/guess/guess.wxss */
+
+.myCoin {
+    position: absolute;
+    top: 20rpx;
+    left: 50rpx;
+    font-size: 36rpx;
+    color: #ffdd48;
+}
+
+.myCoin::before {
+    content: "";
+    display: block;
+    float: left;
+    margin: 12rpx 15rpx 0 0;
+    width: 22rpx;
+    height: 24rpx;
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABYAAAAYCAYAAAD+vg1LAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMTM4IDc5LjE1OTgyNCwgMjAxNi8wOS8xNC0wMTowOTowMSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTcgKFdpbmRvd3MpIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOjM3RUVBNTkzRUUzRTExRTg5QTM3OTI5MDdFOEJBQUYwIiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOjM3RUVBNTk0RUUzRTExRTg5QTM3OTI5MDdFOEJBQUYwIj4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6MzdFRUE1OTFFRTNFMTFFODlBMzc5MjkwN0U4QkFBRjAiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6MzdFRUE1OTJFRTNFMTFFODlBMzc5MjkwN0U4QkFBRjAiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz6r1d7QAAABg0lEQVR42qzVzStEURjH8bm3IWliQ15KpERujRVllMJ+VhR2srG2Egs1pWws7P0FZmFD2cx4WVDKQpnFLOgqG1NKxEIY30fPYkx3zDl3nPo0c889/eaZ83Kv83XdHQnZNjGDuOP5r+U33Uj4No9ebAfdDBvchy79vljM9WzA+Y/gybLrVewSHqs1eCqgbxqnhLfIhRNi8eQvF9CIe3QiVnL/CqNhKo5DqtpDP5owgHU8YgjLbg3zm/0p3/OLyCOlP3QiO6bm4F9z5PlScRJR2+AoxnELP3ABPP+Zj5Rt8LDOaabKuLRt8ESlaSir+t0NsX+LODKZs6A+2T71uk8L2t+ABHJ4sAlu1704h2btk+rOsYI6Dc+arrK0EeyjNeCUJXSxLrQvYxrcgQM9TZWaVDuGT3kemATL4q1VCS1tl3gyDU5a7Iqs6UAJbrMIztgE3xiOvcOxTfCOwThZtCV82ATLyzD9x5gXfXEe2hxRV6uZxQLO8KaV5bGFQXmf2T5bvwUYAIU2UqNuLpmdAAAAAElFTkSuQmCC');
+    background-size: cover;
+    transform: scale(1.4);
+}
+
+.from-help{
+    width: 400rpx;
+    height: 60rpx;
+    line-height: 60rpx;
+    margin:15rpx auto;
+    color: #fff;
+    font-size: 34rpx;
+    text-align: center;
+}
+.from-help text{
+    max-width: 150rpx;
+    display: inline-block;
+    vertical-align: bottom;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.sequence {
+    width: 180rpx;
+    height: 60rpx;
+    border-radius: 30rpx;
+    line-height: 60rpx;
+    margin: 15rpx auto;
+    background: rgba(0, 0, 0, 0.3);
+    text-align: center;
+    font-size: 34rpx;
+    color: #fff;
+}
+
+.sequence text {
+    color: #0ee;
+    margin: 0 5rpx;
+}
+
+.disk {
+    position: relative;
+    width: 400rpx;
+    height: 399rpx;
+    margin: 30rpx auto;
+    background: url('https://static.guojiang.tv/src/miniapp/guessSongs/guess/disk.png') no-repeat 0 0 scroll;
+    background-size: cover;
+}
+
+.disk .tape {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 263rpx;
+    height: 263rpx;
+    background: url('https://static.guojiang.tv/src/miniapp/guessSongs/guess/tape.png') no-repeat 0 0 scroll;
+    background-size: cover;
+    animation: rotate 2s linear infinite;
+}
+
+.tape.play {
+    animation-play-state: running;
+    -webkit-animation-play-state: running;
+}
+
+.tape.pause {
+    animation-play-state: paused;
+    -webkit-animation-play-state: paused;
+}
+
+@keyframes rotate {
+    0% {
+        transform: translate(-50%, -50%) rotate(0);
+    }
+
+    100% {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+}
+
+.disk .play-btn {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 78rpx;
+    height: 78rpx;
+    background-size: cover;
+}
+
+.play-btn.play {
+    background-image: url('https://static.guojiang.tv/src/miniapp/guessSongs/guess/play.png');
+}
+
+.play-btn.pause {
+    background-image: url('https://static.guojiang.tv/src/miniapp/guessSongs/guess/pause.png');
+}
+
+.tips-help{
+    display: flex;
+    justify-content: center;
+    width: 450rpx;
+    margin:0 auto;
+}
+
+.tips {
+    position: relative;
+    /* float: left; */
+    width: 210rpx;
+    height: 60rpx;
+    line-height: 60rpx;
+    color: #fff;
+    font-size: 28rpx;
+    text-align: center;
+    border-radius: 30rpx;
+    background: rgba(0, 0, 0, 0.3);
+}
+
+.tips .deduct {
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    color: #ffdd48;
+    font-size: 30rpx;
+    left: 50%;
+    
+}
+.tips .ani{
+    animation: toUp 1s forwards;
+}
+@keyframes toUp{
+    0%{
+        opacity: 0;
+        transform: translate(-50%, -50rpx);
+    }
+    50%{
+        opacity: 1;
+        transform: translate(-50%, -70rpx);
+    }
+    100%{
+        opacity: 0;
+        transform: translate(-50%, -90rpx);
+    }
+}
+
+
+.tips::before {
+    content: "";
+    display: block;
+    float: left;
+    width: 27rpx;
+    margin: 15rpx 5rpx 0 15rpx;
+    height: 32rpx;
+    background: url('https://static.guojiang.tv/src/miniapp/guessSongs/guess/tips.png') no-repeat 0 0 scroll;
+    background-size: cover;
+}
+
+.tips::after {
+    content: "";
+    display: block;
+    float: right;
+    width: 30rpx;
+    margin: 12rpx 20rpx 0 0;
+    height: 35rpx;
+    transform: scale(0.7);
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAjCAYAAAD17ghaAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMTM4IDc5LjE1OTgyNCwgMjAxNi8wOS8xNC0wMTowOTowMSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTcgKFdpbmRvd3MpIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOkVENkMwN0NGRjkzODExRThCRDI3OENDQUVBNUVBNjMyIiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOkVENkMwN0QwRjkzODExRThCRDI3OENDQUVBNUVBNjMyIj4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6RUQ2QzA3Q0RGOTM4MTFFOEJEMjc4Q0NBRUE1RUE2MzIiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6RUQ2QzA3Q0VGOTM4MTFFOEJEMjc4Q0NBRUE1RUE2MzIiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz7+8e64AAACFklEQVR42sTXTUgVURTAcd/wEBI1DIpAdFWQQtkmBTHwCzchbYsW6qKFu9zrKmrTItpEuBS0TVAg+IH6fH7WVsg2QgsLMZKUkMrKbv+BM3gZct7M3NPzwA+u473vnpk792MyxpgS5ajFMrbQjD9Rlb0S/biNGjShv2Bt/wkomzJH8Q1NUfUzykNQil2UWde+oB1rxRiCxlDnfpzBIrqLkUD7Mdcr8QqDyPzPdyBvCsdzlAZtNDs/hR8mXryAp/0SdmBWymP4jLOow2VkQ/Xv4YnmE3hg3WFt6H+n0Yd1q84uyjUTWJEf3oiok8UADqRur9YsqJAp6Ecuot5vPMZNKbdoJXDdGuP5GPWncB/VWgm0BbMa+ZhtHvkvqqe8AL3Ddsw23zGskUAVriZ4/HasaCTQai3puYRtjac4/v7BYyFpY09x/Ndk6y1qAudQL+W5ND+QPeb6FdyRM12NTK+PWMIo1q27D7bXfKpbCC2VFzFZYCc7xFPZ/Z7JtV+oSLOE23904auJHzN4L+XVtHtIMATX8PIfx6mo6LTK82lfIk8OkmMJOw+HUwI9uODQ+YG/orkkcMtxKr6RdT11Ag2OCeRcGnuymZxoAh8c2m/itWsC0w7tH+LQ6fmxGFzCT5M8xpFxPcwGhf6Enc+mXXqjluIe7BXoeB9DcrxWOc6Hv4zO4y5uyBeN/1G5g7eYwAg+aX7N/hVgALbLaJFpQ1QJAAAAAElFTkSuQmCC');
+    background-size: cover;
+}
+
+.answer .shake{
+    color: red!important;
+    animation: shake 0.3s forwards;
+}
+@keyframes shake{
+    0%{transform: translateX(0)}
+    25%{transform: translateX(-4rpx)}
+    50%{transform: translateX(0)}
+    75%{transform: translateX(4rpx)}
+    100%{transform: translateX(0)}
+}
+
+
+.help {
+    /* float: left; */
+    width: 210rpx;
+    height: 60rpx;
+    margin-left: 20rpx;
+    line-height: 60rpx;
+    color: #fff;
+    font-size: 28rpx;
+    text-align: center;
+    border-radius: 30rpx;
+    background: rgba(0, 0, 0, 0.3);
+}
+
+.help::before {
+    content: "";
+    display: block;
+    float: left;
+    margin: 15rpx 0 0 0;
+    width: 36rpx;
+    height: 33rpx;
+    background: url('https://static.guojiang.tv/src/miniapp/guessSongs/guess/help.png') no-repeat 0 0 scroll;
+    background-size: cover;
+}
+
+.answer {
+    margin: 60rpx auto 30rpx;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.answer view {
+    float: left;
+    margin: 0 10rpx;
+    width: 84rpx;
+    height: 84rpx;
+    text-align: center;
+    line-height: 84rpx;
+    border-radius: 8rpx;
+    border: 5rpx solid transparent;
+    background-color: #0ee;
+}
+
+.answer .clear {
+    width: 54rpx;
+    height: 54rpx;
+    margin: 15rpx 0 0 10rpx;
+    background: url('https://static.guojiang.tv/src/miniapp/guessSongs/guess/clear.png') no-repeat 0 0 scroll;
+    background-size: cover;
+}
+
+.answer .current {
+    border: 5rpx solid #ff3e94;
+}
+
+.answer .checked {
+    color: #fff;
+    background-color: rgba(93, 8, 139, 0.5);
+}
+
+.pools,.form{
+    display: block;
+    padding: 0 72rpx;
+}
+
+.pools view {
+    width: 100rpx;
+    height: 100rpx;
+    line-height: 100rpx;
+    text-align: center;
+    float: left;
+    margin: 10rpx;
+    font-size: 46rpx;
+    color: #000;
+    border-radius: 8rpx;
+    background-color: #fff;
+    box-shadow: 0 6rpx 4rpx #c261fc;
+}
+
+.pools .used {
+    opacity: 0.5;
+}
+
+.form button{
+    width: 100rpx;
+    height: 100rpx;
+    line-height: 100rpx;
+    text-align: center;
+    float: left;
+    margin: 10rpx;
+    font-size: 46rpx;
+    color: #000;
+    border-radius: 8rpx;
+    background-color: #fff;
+    box-shadow: 0 6rpx 4rpx #c261fc;
+}
+
+
+.ad {
+    width: 720rpx;
+    height: 144rpx;
+    margin: 30rpx auto;
+    background-size: cover;
+}
+
+.result,.help-result {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.7);
+}
+
+.result-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 642rpx;
+    height: 700rpx;
+}
+
+.result .panel ,.help-result .panel{
+    display: table;
+    position: relative;
+    width: 600rpx;
+    height: 337rpx;
+    margin: 0 auto;
+    border-radius: 10rpx;
+    background-color: #5d098c;
+}
+.help-result .panel{
+    /* height: 200rpx; */
+}
+
+.result .title,.help-result .title {
+    position: absolute;
+    top: -90rpx;
+    left: -20rpx;
+    width: 642rpx;
+    height: 108rpx;
+    background: url('https://static.guojiang.tv/src/miniapp/guessSongs/guess/reuslt-title.png') no-repeat 0 0 scroll;
+    background-size: cover;
+}
+
+.result .sequence ,.help-result .sequence{
+    margin-top: 60rpx;
+}
+
+.result .answerString,.help-result .answerString {
+    font-size: 46rpx;
+    color: #fff;
+    margin: 20rpx auto 40rpx;
+    text-align: center;
+}
+
+.result .prize {
+    font-size: 36rpx;
+    color: #ffdd48;
+    display: flex;
+    justify-content: center;
+}
+
+.result .prize::before {
+    content: "";
+    display: block;
+    float: left;
+    margin: 18rpx 10rpx 0 0;
+    width: 22rpx;
+    height: 24rpx;
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABYAAAAYCAYAAAD+vg1LAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMTM4IDc5LjE1OTgyNCwgMjAxNi8wOS8xNC0wMTowOTowMSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTcgKFdpbmRvd3MpIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOjM3RUVBNTkzRUUzRTExRTg5QTM3OTI5MDdFOEJBQUYwIiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOjM3RUVBNTk0RUUzRTExRTg5QTM3OTI5MDdFOEJBQUYwIj4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6MzdFRUE1OTFFRTNFMTFFODlBMzc5MjkwN0U4QkFBRjAiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6MzdFRUE1OTJFRTNFMTFFODlBMzc5MjkwN0U4QkFBRjAiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz6r1d7QAAABg0lEQVR42qzVzStEURjH8bm3IWliQ15KpERujRVllMJ+VhR2srG2Egs1pWws7P0FZmFD2cx4WVDKQpnFLOgqG1NKxEIY30fPYkx3zDl3nPo0c889/eaZ83Kv83XdHQnZNjGDuOP5r+U33Uj4No9ebAfdDBvchy79vljM9WzA+Y/gybLrVewSHqs1eCqgbxqnhLfIhRNi8eQvF9CIe3QiVnL/CqNhKo5DqtpDP5owgHU8YgjLbg3zm/0p3/OLyCOlP3QiO6bm4F9z5PlScRJR2+AoxnELP3ABPP+Zj5Rt8LDOaabKuLRt8ESlaSir+t0NsX+LODKZs6A+2T71uk8L2t+ABHJ4sAlu1704h2btk+rOsYI6Dc+arrK0EeyjNeCUJXSxLrQvYxrcgQM9TZWaVDuGT3kemATL4q1VCS1tl3gyDU5a7Iqs6UAJbrMIztgE3xiOvcOxTfCOwThZtCV82ATLyzD9x5gXfXEe2hxRV6uZxQLO8KaV5bGFQXmf2T5bvwUYAIU2UqNuLpmdAAAAAElFTkSuQmCC');
+    background-size: cover;
+    transform: scale(1.1);
+}
+
+.result .share {
+    width: 420rpx;
+    height: 115rpx;
+    margin: 30rpx auto;
+    background: url('https://static.guojiang.tv/src/miniapp/guessSongs/guess/share.png') no-repeat 0 0 scroll;
+    background-size: cover;
+}
+
+.result .nextSong {
+    width: 420rpx;
+    height: 115rpx;
+    margin: 0 auto;
+    background: url('https://static.guojiang.tv/src/miniapp/guessSongs/guess/next-btn.png') no-repeat 0 0 scroll;
+    background-size: cover;
+}
+
+.help-result .did-panel{
+    width: 600rpx;
+    margin: 0 auto;
+    border-radius: 10rpx;
+    background-color: #5d098c;
+}
+.help-result .did-panel view{
+    text-align: center;
+    color: #fff;
+    font-size: 46rpx;
+    height: 227rpx;
+    line-height: 227rpx;
+}
+
+.help-result .myGuess{
+    width: 420rpx;
+    height: 115rpx;
+    margin: 30rpx auto;
+    background: url('https://static.guojiang.tv/src/miniapp/guessSongs/guess/in.png') no-repeat 0 0 scroll;
+    background-size: cover;
+}
+.thanks{
+    color: #fff;
+    text-align: center;
+}
+.danmu{
+    width: 100%;
+    height:calc(100% - 650rpx);
+    position: absolute;
+    top: 100rpx;
+    overflow: hidden;
+}
+.danmu_li{
+	height: 60rpx;
+	background-image: linear-gradient(-90deg, 
+		#4e479b 0%, 
+		#67469b 100%), 
+	linear-gradient(
+		#ffffff, 
+		#ffffff);
+	background-blend-mode: normal, 
+		normal;
+    border-radius: 30rpx;
+    position: absolute;
+    right:0;
+    top: 0;
+    transform:translateX(100%);
+    display:flex;
+    align-items:center;
+    /* animation: run 7s; */
+}
+@keyframes run{
+    0%{
+        right: 0;
+        transform:translateX(100%);
+    }
+    100%{
+        right: 750rpx;
+        transform:translateX(0);
+    }
+}
+.danmu .u_avatar{
+    width: 62rpx;
+	height: 62rpx;
+    border-radius: 100%;
+    border: 2px solid #7278e4;
+    position: absolute;
+    left: 0;
+    top: -2rpx;
+}
+.danmu_li .answerString{
+    height: 64rpx;
+    line-height: 64rpx;
+    font-size: 32rpx;
+    color: #ffffff;
+    padding-left: 75rpx;
+    padding-right: 22rpx;
+    text-align: right;
+    white-space:nowrap;
+}

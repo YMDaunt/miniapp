@@ -1,0 +1,13 @@
+<cover-view class="wrap">
+    <cover-view class="mask" bindtap="close"></cover-view>
+    <cover-view class="content">
+        <cover-image class="title" src="../../static/img/common/login/title{{type?type:''}}.png"></cover-image>
+        <cover-view class="hint">你还没有登录账号</cover-view>
+        <button class="btn" open-type="getUserInfo" bindgetuserinfo="login">登录账号</button>
+        <cover-image 
+            class="close" 
+            src="../../static/img/common/close_icon.png" 
+            bindtap="close"
+            hidden="{{hideCloseBtn}}"></cover-image>
+    </cover-view>
+</cover-view>

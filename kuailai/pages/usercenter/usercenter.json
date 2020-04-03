@@ -1,0 +1,6 @@
+{
+    "usingComponents": {
+        "login-page": "/components/login-page/login-page"
+    },
+    "enablePullDownRefresh": true
+}

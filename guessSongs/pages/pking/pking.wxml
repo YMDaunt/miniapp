@@ -1,0 +1,84 @@
+<!--pages/pking/pking.wxml-->
+<view class="container">
+    <view class="vs">
+        <view class="me">
+            <view class="blue">
+                <view class="avatar-box">
+                    <image src="{{userInfo.avatarUrl}}"></image>
+                </view>
+            </view>
+            <view class="name">{{userInfo.nickName}}</view>
+        </view>
+        <view class="countDownTime" wx:if="{{showCountDown}}">
+            <view class="time-content">{{timeContent}}</view>
+            <view class="wrapper right">
+                <view class="circleProgress rightcircle"></view>
+            </view>
+            <view class="wrapper left">
+                <view class="circleProgress leftcircle"></view>
+            </view>
+        </view>
+        <view class="friend">
+            <view class="red">
+                <view class="avatar-box">
+                    <image src="{{friend.avatarUrl}}"></image>
+                </view>
+            </view>
+            <view class="name">{{friend.nickName}}</view>
+        </view>
+    </view>
+    <view class="tips" wx:if="{{showCountDown}}">
+        <view class="ready" hidden="{{!showReady}}"></view>
+        <view class="go" hidden="{{showReady}}"></view>
+    </view>
+    <view class="pk" hidden="{{showCountDown}}">
+        <view class="sequence">第{{currentSongList.id}}首</view>
+        <view class="title">猜歌名</view>
+        <view class="pk-content">
+            <view class="my-coin-wrap">
+                <view class="mCoin">{{userScore}}</view>
+                <view class="progress-box">
+                    <view class="progress" style="height:{{userScore*470/600}}rpx"></view>
+                </view>
+            </view>
+            <view class="subject">
+                <view class="item {{resultClass[index]}}" wx:for="{{currentSongList.songAnswerList}}" wx:key="index" bindtap='select' data-item="{{item}}" data-index="{{index}}">{{item}}</view>
+            </view>
+            <view class="friend-coin-wrap">
+                <view class="fCoin">{{toUserScore}}</view>
+                <view class="progress-box">
+                    <view class="progress" style="height:{{toUserScore*470/600}}rpx"></view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="over-wrap" wx:if="{{gameOver}}">
+        <view class="over">
+            <view class="title">是我啊 已答完，PK结束</view>
+            <view class="vs-over clearfix">
+                <view class="me">
+                    <view class="blue">
+                        <view class="avatar-box">
+                            <image src="http://fpoimg.com/83x83"></image>
+                        </view>
+                    </view>
+                    <view class="score">1000分</view>
+                    <view class="name">Jesse</view>
+                    <view class="fail"></view>
+                </view>
+                <view class="friend">
+                    <view class="red">
+                        <view class="avatar-box">
+                            <image src="http://fpoimg.com/83x83"></image>
+                        </view>
+                    </view>
+                    <view class="score">1000分</view>
+                    <view class="name">?</view>
+                    <view class="win"></view>
+                </view>
+            </view>
+            <view class="continue"></view>
+            <view class="giveup"></view>
+        </view>
+    </view>
+</view>

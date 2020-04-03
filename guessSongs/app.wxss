@@ -1,0 +1,20 @@
+/**app.wxss**/
+.container {
+  height: 100vh;
+  box-sizing: border-box;
+  position: relative;
+  width: 100%;
+  background: url('https://static.guojiang.tv/src/miniapp/guessSongs/index/bg.jpg') no-repeat 0 0 scroll;
+  background-size: cover;
+  overflow: hidden;
+} 
+.clearfix:after {
+  content: "";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+button::after {
+  border: 0;
+} 

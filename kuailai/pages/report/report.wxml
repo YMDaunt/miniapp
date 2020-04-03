@@ -1,0 +1,37 @@
+<header title="举报" class="header" showBack="{{true}}"></header>
+
+<view class="content">
+    <text class="title">举报内容</text>
+    <view class="ul clearfix">
+        <block wx:for="{{reportContentList}}" wx:key="id">
+            <view class="li {{selectedIndex==index?'active':''}}" 
+                bindtap="selectContent"
+                data-index="{{index}}"
+                data-id="{{item.id}}">{{item.text}}</view>
+        </block>
+    </view>
+
+    <text class="title">上传举报截图</text>
+    <view class="img_ul">
+        <view class="img_li" hidden="{{!hideImgMask}}">
+            <view class="img_wrap">
+                <image class="screenshot" 
+                    src="{{previewImgUrl}}" 
+                    mode="widthFix"
+                    bindtap="selectImg"></image>
+            </view>
+            <image class="close" 
+                src="../../static/img/report/close.png"
+                bindtap="clearImg"></image>
+        </view>
+        <image class="img_li img_mask"
+            src="../../static/img/report/mask.png"
+            hidden="{{hideImgMask}}"
+            bindtap="selectImg"
+            hover-class="select_hover"></image>
+    </view>
+
+    <text class="title">我们会优先处理有截图的举报信息~</text>
+
+    <button class="submit" hover-class="submit_active" bindtap="submit">提交</button>
+</view>

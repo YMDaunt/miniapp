@@ -1,0 +1,28 @@
+.f_hint{
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.f_hint .fh_title{
+    width: 100%;
+    display: block;
+    text-align: center;
+	font-size: 30rpx;
+	letter-spacing: 0rpx;
+    color: #666666;
+    padding-bottom: 72rpx;
+    text-align: center;
+}
+.f_hint .fh_btn{
+    width: 480rpx;
+	height: 88rpx;
+	line-height: 88rpx;
+	background-color: #ec2f2b;
+	border-radius: 44rpx;
+	font-size: 30rpx;
+	letter-spacing: 0rpx;
+    color: #f7eeff;
+    text-align: center;
+    margin: 0 auto;
+}

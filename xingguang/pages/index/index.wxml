@@ -1,0 +1,69 @@
+<wxs src="../../utils/util.wxs" module="util"/>
+
+<header title="首页" class="header" bindheaderload="onHeaderLoad"></header>
+
+<navigator url="/components/guide-down/guide-down" class="right_bar" hover-class="button-hover">
+	<view class="rb_text">APP下载</view>
+</navigator>
+
+<view class="ul clearfix" style="margin-top:{{headerH}}px;">
+	  <view class="li" 
+		  bindtap="goRoom"
+		  data-mid="{{item.mid}}"
+		  data-videourl="{{item.videoPlayUrl}}"
+		  data-headpic="{{item.headPic}}"
+		  wx:for="{{items}}"
+		  wx:key="index">
+
+		<view class="img_wrap" style="background-color:{{util.getBgColor()}};">
+			
+			<image class="avatar" src="{{util.filterHttp(item.headPic)}}" mode="widthFix" lazy-load="true"></image>
+			<view class="info_wrap">
+				<text class="nickname">{{item.nickname}}</text>
+				<view class="info">
+					<view class="location_wrap">
+						<image class="position_icon" src="../../static/img/common/icon_position.png" ></image>
+						<text class="position">{{item.city}}</text>
+					</view>
+
+					<view class="viewer_wrap">
+						<text class="viewer">{{item.onlineNum}}</text>
+					</view>
+				</view>
+
+				<view class="mask"></view>
+			</view>
+		</view>	
+		
+	</view>
+</view>
+<button class="loading_btn" loading="true" hidden="{{!loadNextPage}}"> 加载中...</button>
+
+<view class="end_hint" hidden="{{!isEnd}}">
+	<view class="line"></view>
+	<text class="text">没有更多了哦</text>
+	<view class="line"></view>
+</view>
+
+<!--登录弹框组件-->
+<view hidden="{{hideLoginLayer}}" class="login_wrapper">
+    <login bindclose="onLoginLayerClose" class="login_component" bindlogined="onUserLogined" type="2" hideCloseBtn="{{true}}"></login>
+</view>
+
+<!--新用户提示-->
+<view class="goroom_hint_wrap" hidden="{{hideGoRoomLayer}}">
+    <view class="goroom_hint_mask"></view>
+    <view class="goroom_hint_content">
+		<image class="goroom_hint_title" src="../../static/img/common/login/title3.png"></image>
+		<view class="goroom_avatar_wrap">
+			<image class="goroom_hint_avatar" src="{{goRoomLayerInfo.headPic}}" mode="widthFix"></image>
+		</view>
+		<button 
+			class="goroom_hint_btn" 
+			bindtap="goRoom"
+			data-mid="{{goRoomLayerInfo.mid}}"
+		  	data-videourl="{{goRoomLayerInfo.videoPlayUrl}}"
+		  	data-headpic="{{goRoomLayerInfo.headPic}}">去看看</button>
+        <image class="goroom_hint_close" src="../../static/img/common/close_icon.png" bindtap="closeGoRoomLayer"></image>
+    </view>
+</view>

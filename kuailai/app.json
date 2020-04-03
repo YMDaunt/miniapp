@@ -1,0 +1,74 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/usercenter/usercenter",
+    "pages/follow/follow",
+    "pages/report/report"
+  ],
+  "subPackages": [
+    {
+      "name": "recharge",
+      "root": "recharge",
+      "pages": [
+        "index/index",
+        "wxpay/wxpay"
+      ]
+    },
+    {
+      "name": "room",
+      "root": "room",
+      "pages": [
+        "index/index"
+      ]
+    }
+  ],
+  "preloadRule": {
+    "pages/index/index": {
+      "network": "all",
+      "packages": [
+        "room"
+      ]
+    },
+    "pages/follow/follow": {
+      "network": "all",
+      "packages": [
+        "room"
+      ]
+    }
+  },
+  "window": {
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "快来直播秀",
+    "navigationBarTextStyle": "black",
+    "navigationStyle": "custom",
+    "onReachBottomDistance": 100
+  },
+  "tabBar": {
+    "color": "#999999",
+    "selectedColor": "#d94337",
+    "backgourndColor": "#f7f7fa",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "static/img/common/tab_1_nor.png",
+        "selectedIconPath": "static/img/common/tab_1_pre.png"
+      },
+      {
+        "pagePath": "pages/follow/follow",
+        "text": "关注",
+        "iconPath": "static/img/common/tab_2_nor.png",
+        "selectedIconPath": "static/img/common/tab_2_pre.png"
+      },
+      {
+        "pagePath": "pages/usercenter/usercenter",
+        "text": "我的",
+        "iconPath": "static/img/common/tab_3_nor.png",
+        "selectedIconPath": "static/img/common/tab_3_pre.png"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json"
+}

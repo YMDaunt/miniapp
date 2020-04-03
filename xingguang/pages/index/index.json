@@ -1,0 +1,8 @@
+{
+    "usingComponents": {
+      "header": "/components/header/header",
+      "login": "/components/login-layer/login-layer"
+
+    },
+    "enablePullDownRefresh": true
+  }

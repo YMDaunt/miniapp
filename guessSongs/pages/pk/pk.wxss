@@ -1,0 +1,160 @@
+/* pages/pk/pk.wxss */
+.await{
+  height: 215rpx;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 73rpx;
+}
+/* .await .me{
+  float: left;
+} */
+.await .name{
+  font-size: 42rpx;
+  color: #fff;
+  text-align: center;
+}
+.me .blue{
+  width: 308rpx;
+  height: 150rpx;
+  margin-bottom: 10rpx;
+  border-radius: 0 75rpx 75rpx 0;
+  background: linear-gradient(to right,#2f80ed,#56ccf2);
+  overflow: hidden;
+}
+.avatar-box{
+  width: 130rpx;
+  height: 130rpx;
+  border:2rpx solid #fff;
+  border-radius:50%;
+  margin:8rpx;
+  overflow:hidden;
+}
+image{
+  width:100%;
+  height: 100%;
+  background-color: #ccc;
+}
+.blue .avatar-box{
+  margin-left:165rpx;
+}
+
+/* .friend{
+  float: right;
+} */
+.friend .red{
+  width: 308rpx;
+  height: 150rpx;
+  margin-top: 10rpx;
+  border-radius: 75rpx 0 0 75rpx;
+  background: linear-gradient(to right,#ff71bd,#ff5960);
+  overflow: hidden;
+}
+.red .avatar-box{
+  margin-right:165rpx;
+}
+
+.await .vs-icon{
+  /* float: left; */
+  width: 100rpx;
+  height: 106rpx;
+  margin:52rpx 15rpx;
+  background: url('https://static.guojiang.tv/src/miniapp/guessSongs/pk/vs.png') no-repeat 0 0 scroll;
+  background-size: cover;
+}
+
+
+.rules{
+  position: fixed;
+  top: 0;
+  left:0;
+  bottom:0;
+  right: 0;
+  background: rgba(0,0,0,0.5);
+}
+.rules-content{
+  width: 600rpx;
+  height: 565rpx;
+  position: absolute;
+  top: 50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+}
+.rules-panel{
+  position: relative;
+  width: 600rpx;
+  height: 330rpx;
+  padding-top: 60rpx;
+  border-radius: 10rpx;
+  background-color: #5d098c;
+}
+.rules-panel .title{
+  position: absolute;
+  left:50%;
+  top: -30rpx;
+  width: 250rpx;
+  height: 85rpx;
+  transform:translate(-50%,0);
+  background:  url('https://static.guojiang.tv/src/miniapp/guessSongs/pk/title.png') no-repeat 0 0 scroll;
+  background-size: cover;
+}
+.rules-content .text{
+  color: #fff;
+  font-size: 32rpx;
+  line-height: 60rpx;
+  margin:0 30rpx;
+}
+.rules-content .know{
+  width: 420rpx;
+  height: 115rpx;
+  margin:25rpx auto;
+  background:  url('https://static.guojiang.tv/src/miniapp/guessSongs/pk/know-btn.png') no-repeat 0 0 scroll;
+  background-size: cover;
+}
+.tips{
+  height: 180rpx;
+  margin:43rpx auto 80rpx;
+  color: #fff;
+  text-align: center;
+  line-height: 180rpx;
+  font-size: 36rpx;
+}
+.countDownTime{
+  width: 180rpx;
+  height: 180rpx;
+  margin:43rpx auto 80rpx;
+  border-radius: 50%;
+  color: #fff;
+  text-align: center;
+  line-height: 180rpx;
+  font-size: 80rpx;
+  font-weight: bold;
+  background-color:rgba(0,0,0,0.3); 
+}
+
+.group-btn{
+  padding:0 50rpx;
+  overflow: hidden;
+}
+.group-btn .giveup{
+  width: 210rpx;
+  height: 125rpx;
+  float: left;
+  background: url('https://static.guojiang.tv/src/miniapp/guessSongs/pk/giveup.png') no-repeat 0 0 scroll;
+  background-size: cover;
+}
+.group-btn .invite{
+  width: 430rpx;
+  height: 125rpx;
+  float: left;
+  margin-left:10rpx;
+  background: url('https://static.guojiang.tv/src/miniapp/guessSongs/pk/invite.png') no-repeat 0 0 scroll;
+  background-size: cover;
+}
+
+.start-btn{
+  width: 390rpx;
+  height: 153rpx;
+  margin:70rpx auto;
+  background: url('https://static.guojiang.tv/src/miniapp/guessSongs/pk/start.png') no-repeat 0 0 scroll;
+  background-size: cover;
+}

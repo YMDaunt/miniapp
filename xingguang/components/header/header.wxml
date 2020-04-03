@@ -1,0 +1,9 @@
+<view class="top_nav">
+    <view class="status_bar" style="height:{{statusBarH}}px"></view>
+    <view class="title_bar" style="height:{{titleBarH}}px;line-height:{{titleBarH}}px;">
+        <navigator open-type="navigateBack" class="back_wrap" wx:if="{{showBack}}">
+            <image class="icon" src="../../static/img/common/back_icon.png"></image>
+        </navigator>
+        <text class="text">{{title==''?defaulTitle:title}}</text>
+    </view>
+</view>

@@ -1,0 +1,278 @@
+.userinfo {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.userinfo-avatar {
+	width: 128rpx;
+	height: 128rpx;
+	margin: 20rpx;
+	border-radius: 50%;
+}
+
+.userinfo-nickname {
+	color: #aaa;
+}
+
+/**index.wxss**/ 
+.right_bar{
+	width: 150rpx;
+	height: 80rpx;
+	background: rgba(226, 30, 140, 0.25);
+	border-radius: 40rpx 0rpx 0rpx 40rpx;
+	position: fixed;
+	right: 0;
+	bottom: 54rpx;
+	z-index: 2;
+}
+.right_bar .rb_text{
+	position: absolute;
+	top: 11rpx;
+	right: 0rpx;
+	width: 140rpx;
+	height: 60rpx;
+	line-height: 60rpx;
+	background-image: linear-gradient(-45deg, 
+		#9666bc 0%, 
+		#ea1787 100%), 
+	linear-gradient(
+		#999999, 
+		#999999);
+	background-blend-mode: normal, 
+		normal;
+	border-radius: 28rpx 0rpx 0rpx 28rpx;
+	font-size: 28rpx;
+	font-weight: normal;
+	text-align: center;
+	letter-spacing: 0rpx;
+	color: #ffffff;
+}
+
+.right_bar.button-hover{
+	opacity: 0.7;
+}
+
+.header{
+	position: fixed;
+	top:0;
+	left: 0;
+	right:0;
+	z-index: 2;
+}
+page{
+	background: #f5f5f5;
+}
+.ul{
+	position: relative;
+	z-index: 1;
+	margin-top: 128rpx;
+	padding: 16rpx 0 20rpx 10rpx;
+	background: #f5f5f5;
+}
+.li{
+	width: 360rpx;
+	height: 360rpx;
+	float: left;
+	background-color: #222222;
+	border-radius: 5rpx;
+	margin-bottom: 10rpx;
+}
+.li:nth-child(2n+1){
+	margin-right: 10rpx;
+}
+.li .img_wrap{
+	width: 360rpx;
+	height: 360rpx;
+	overflow: hidden;
+	position: relative;
+	border-radius: 5rpx;
+}
+.li .img_wrap .avatar{
+	width: 100%;
+	margin-top: 50%;
+	transform: translateY(-50%);
+	display: block;
+	border-radius: 5rpx;
+}
+.li .info_wrap{
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+}
+.li .nickname{
+	padding: 0 19rpx 0 16rpx;
+	width: 100%;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	font-size: 28rpx;
+	font-weight: normal;
+	letter-spacing: 1rpx;
+	color: #ffffff;
+	position: absolute;
+	bottom: 47rpx;
+	left: 0;
+	right: 0;
+	z-index: 1;
+}
+.li .info{
+	padding: 0 19rpx 0 16rpx;
+	display: flex;
+	align-items: center;
+	justify-content:space-between;
+	position: absolute;
+	bottom: 10rpx;
+	left: 0;
+	right: 0;
+	z-index: 1;
+}
+.li .mask{
+	width: 360rpx;
+	height: 97rpx;
+	background-image: linear-gradient(0deg, 
+		rgba(0,0,0,1), 
+		rgba(255,255,255,0));
+	opacity: 0.5;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	z-index: 0;
+}
+.li text{
+	display: inline;
+}
+.li image{
+	display: inline;
+}
+.li .position{
+	font-size: 24rpx;
+	font-weight: normal;
+	letter-spacing: 0rpx;
+	color: #ffffff;
+	max-width: 190rpx;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+.li .position_icon{
+	width: 22rpx;
+	height: 28rpx;
+	margin-right: 9rpx;
+}
+.li .viewer{
+	font-size: 24rpx;
+	font-weight: normal;
+	font-stretch: normal;
+	letter-spacing: 0rpx;
+	color: #ffffff;
+}
+.li .location_wrap{
+	display: flex;
+	align-items: center;
+}
+.li .viewer_wrap{
+	display: flex;
+	align-items: center;
+}
+
+.loading_btn{
+	width: 100%;
+	height: 80rpx;
+	line-height: 80rpx;
+	text-align: center;
+	font-size: 12px;
+	color: #666;
+	background: none;
+}
+.loading_btn::after{
+	border: none;
+}
+
+/*登录组件*/
+.login_wrapper{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+	height: 100%;
+	z-index: 99;
+}
+.login_component{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/*提示框*/
+.goroom_hint_wrap{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+	height: 100%;
+	z-index: 999;
+}
+.goroom_hint_mask{
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.3);
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+.goroom_hint_content{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 2;
+    transform: translate(-50%, -50%);
+    width: 602rpx;
+	height: 680rpx;
+	background-color: #ffffff;
+    border-radius: 30rpx;
+    padding-bottom: 47rpx;
+    overflow:initial;
+}
+.goroom_hint_title{
+    width: 100%;
+    height: 145rpx;
+    display: block;
+    border-radius: 30rpx;
+}
+.goroom_avatar_wrap{
+	width: 360rpx;
+	height: 360rpx;
+	overflow: hidden;
+	margin: 18rpx auto 23rpx;
+}
+.goroom_hint_avatar{
+	display: block;
+	width: 100%;
+	height: auto;
+}
+.goroom_hint_btn{
+    width: 360rpx;
+	height: 84rpx;
+    line-height: 84rpx;
+    margin: 0 auto;
+	background-color: #ff0071;
+	border-radius: 42rpx;
+	font-size: 30rpx;
+	letter-spacing: 0rpx;
+    color: #ffffff;
+    text-align: center;
+}
+.goroom_hint_close{
+    width: 44rpx;
+    height: 44rpx;
+    position: absolute;
+    top: -50rpx;
+    right: -28rpx;
+}

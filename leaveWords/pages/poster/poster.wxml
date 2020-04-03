@@ -1,0 +1,13 @@
+<canvas class="poster_canvas" canvas-id="posterCanvas" style="width:528rpx;height: 528rpx;"
+    bindtap="previewPoster"
+    bindlongpress="onLongPress"></canvas>
+
+<text class="hint">注意：微信限制，长按发送至聊天窗口，即可正常访问</text>
+
+<view class="save" bindtap="onLongPress" hover-class="hover_active">保存海报</view>
+
+<button class="share" 
+    hover-class="hover_active"
+    open-type="share">分享群里看看</button>
+
+<view class="back" bindtap="goHome">返回首页</view>

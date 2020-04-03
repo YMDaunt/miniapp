@@ -1,0 +1,358 @@
+page{
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+.body{
+    background: url(https://static.guojiang.tv/src/miniapp/leaveWords/index/bg.jpg) no-repeat top center;
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+.welcome_title{
+	font-size: 50rpx;
+    color: #ffffff;
+    display: block;
+    width: 100%;
+    text-align: center;
+    padding-top: 37rpx;
+    margin-bottom: 76rpx;
+}
+.avatar_wrap{
+    width: 318rpx;
+    height: 318rpx;
+    position: relative;
+    display: block;
+    margin: 0 auto;
+}
+.avatar_bg{
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+.avatar_wrap .avatar{
+    width: 239rpx;
+    height: 239rpx;
+    border-radius: 100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.speak_area{
+    position: absolute;
+    bottom: 148rpx;
+    left: 33rpx;
+    width: 688rpx;
+}
+.input_outter{
+    margin-bottom: 24rpx;
+    position: relative;
+    height: 69rpx;
+    overflow: hidden;
+}
+.input_outter input{
+    width: 516rpx;
+    height: 69rpx;
+    font-size: 34rpx;
+    color: #ffffff;
+    line-height: 69rpx;
+    border-bottom: 2rpx solid #ffffff;
+}
+.input_hint_wrap{
+    width: 516rpx;
+    height: 66rpx;
+    position: absolute;
+    left: 0;
+    top:0;
+    overflow: hidden;
+}
+.input_outter .confirm{
+    width: 157rpx;
+	height: 69rpx;
+	line-height: 69rpx;
+	background-image: linear-gradient(-90deg, 
+		#4e479b 0%, 
+		#67469b 100%), 
+	linear-gradient(
+		#ffffff, 
+		#ffffff);
+	background-blend-mode: normal, 
+		normal;
+	border-radius: 12rpx;
+    display: inline-block;
+    margin-left: 15rpx;
+    font-size: 34rpx;
+    color: #ffffff;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+.input_hint{
+    position: absolute;
+    top: 10rpx;
+    left: 0;
+    animation: topic 20s infinite alternate;
+}
+.ih_li{
+    font-size: 34rpx;
+    color: #9962ef;
+    padding-bottom: 25rpx;
+    display: block;
+}
+@-webkit-keyframes topic {
+    0% {
+        transform: translateY(0);
+    }
+
+    8.14% {
+        transform: translateY(0);
+    }
+
+    16.28% {
+        transform: translateY(-14.28%);
+    }
+
+    24.42% {
+        transform: translateY(-14.28%);
+    }
+
+    32.56% {
+        transform: translateY(-28.56%);
+    }
+
+    40.70% {
+        transform: translateY(-28.56%);
+    }
+
+    48.84% {
+        transform: translateY(-42.84%);
+    }
+
+    56.98% {
+        transform: translateY(-42.84%);
+    }
+
+    62.12% {
+        transform: translateY(-57.12%);
+    }
+
+    70.26% {
+        transform: translateY(-57.12%);
+    }
+
+    78.40% {
+        transform: translateY(-71.40%);
+    }
+
+    86.54% {
+        transform: translateY(-71.40%);
+    }
+
+    92.68% {
+        transform: translateY(-85.68%);
+    }
+    100% {
+        transform: translateY(-85.68%);
+    }
+}
+
+.words_select{
+    position: relative;
+}
+.word_term{
+	border-radius: 6rpx;
+	border: 1rpx dashed #ffffff;
+    opacity: 0.7;
+    font-size: 30rpx;
+	color: #ffffff;
+    opacity: 0.7;
+    text-align: center;
+    line-height: 66rpx;
+    padding: 0rpx 23rpx 0rpx 22rpx;
+    margin-right: 18rpx;
+    margin-bottom: 18rpx;
+    display: inline-block;
+    float: left;
+    white-space: nowrap;
+    max-width: 570rpx;
+    text-overflow: ellipsis;
+    overflow: hidden;
+
+}
+.change_word{
+    position: absolute;
+    right: 0;
+    bottom: 37rpx;
+    font-size: 28rpx;
+	color: #ffffff;
+    opacity: 0.8;
+    padding:3px 5px;
+}
+
+.btn_func{
+    position: absolute;
+    bottom: 50rpx;
+    left: 0;
+    width: 100%;
+    height: 84rpx;
+}
+.btn_func .btn{
+    position: absolute;
+    left: 33rpx;
+    width: 280rpx;
+	height: 84rpx;
+	background-image: linear-gradient(-90deg, 
+		#4e479b 0%, 
+		#67469b 100%), 
+	linear-gradient(
+		#ffffff, 
+		#ffffff);
+	background-blend-mode: normal, 
+		normal;
+	border-radius: 12rpx;
+    border: solid 2rpx #9164e7;
+    left: 33rpx;
+    font-size: 34rpx;
+    color: #ffffff;
+    text-align: center;
+    line-height: 84rpx;
+}
+.btn_func .btn_func_r{
+    width: 390rpx;
+	height: 84rpx;
+	background-image: linear-gradient(-90deg, 
+		#4e479b 0%, 
+		#67469b 100%), 
+	linear-gradient(
+		#ffffff, 
+		#ffffff);
+	background-blend-mode: normal, 
+		normal;
+	border-radius: 12rpx;
+    border: solid 2rpx #9164e7;
+    left: 331rpx;
+}
+
+.danmu{
+    width: 100%;
+    /* height: 635rpx; */
+    height:calc(100% - 550rpx);
+    position: absolute;
+    top: 115rpx;
+    overflow: hidden;
+}
+.danmu_li{
+	height: 60rpx;
+	background-image: linear-gradient(-90deg, 
+		#4e479b 0%, 
+		#67469b 100%), 
+	linear-gradient(
+		#ffffff, 
+		#ffffff);
+	background-blend-mode: normal, 
+		normal;
+    border-radius: 30rpx;
+    display: inline-block;
+    position: absolute;
+    right:0;
+    top: 0;
+    transform:translateX(100%);
+    display:flex;
+    align-items:center;
+    /* animation: run 7s; */
+}
+@keyframes run{
+    0%{
+        right: 0;
+        transform:translateX(100%);
+    }
+    100%{
+        right: 750rpx;
+        transform:translateX(0);
+    }
+}
+.danmu .u_avatar{
+    width: 62rpx;
+	height: 62rpx;
+    border-radius: 100%;
+    border: 2px solid #7278e4;
+    position: absolute;
+    left: 0;
+    top: -2rpx;
+}
+
+.danmu_li .comment{
+    font-size: 32rpx;
+    color: #ffffff;
+    padding-left: 75rpx;
+    padding-right: 22rpx;
+    text-align: right;
+    white-space:nowrap;
+}
+.button-hover, .words_hover{
+    opacity: 0.6;
+}
+.font-hover{
+    color: #c5c5c5;
+}
+
+/*登录弹框*/
+.login_layer, .mask{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+.mask{
+    background: rgba(0,0,0,0.6);
+}
+.login_layer .content{
+    width: 600rpx;
+	background-color: #ffffff;
+    border-radius: 12rpx;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -70%);
+}
+.login_layer .title{
+    width: 100%;
+	font-family: PingFang-SC-Medium;
+	font-size: 40rpx;
+    color: #000000;
+    text-align: center;
+    padding: 69rpx 0 38rpx;
+    display: block;
+}
+.login_layer .desc{
+    display: block;
+    width: 100%;
+	font-family: PingFang-SC-Medium;
+	font-size: 36rpx;
+	letter-spacing: 1rpx;
+    color: #000000;
+    text-align: center;
+    padding-bottom: 67rpx;
+}
+.login_layer .btn{
+    width: 525rpx;
+	height: 84rpx;
+	background-image: linear-gradient(-90deg, 
+		#5047a0 0%, 
+		#6d44a0 100%), 
+	linear-gradient(
+		#ffffff, 
+		#ffffff);
+	background-blend-mode: normal, 
+		normal;
+	border-radius: 12rpx;
+    border: solid 2rpx #9962ef;
+    display: block;
+    margin: 0 auto 31rpx;
+    font-size: 34rpx;
+	color: #ffffff;
+}

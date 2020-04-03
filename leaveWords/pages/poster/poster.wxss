@@ -1,0 +1,64 @@
+.poster_canvas{
+    display: block;
+    margin: 62rpx auto 0;
+    box-shadow:0 0 10px 1px rgba(0,0,0,0.3);
+    background: rgba(247, 252, 255, 0.58);
+}
+
+.hint{
+    display: block;
+    font-size: 28rpx;
+    color:#999999;
+    width: 395rpx;
+    text-align: center;
+    padding-bottom: 90rpx;
+    margin: 20rpx auto 0;
+}
+.save{
+    width: 360rpx;
+	height: 84rpx;
+	background-image: linear-gradient(-90deg, 
+		#4e479b 0%, 
+		#67469b 100%), 
+	linear-gradient(
+		#ffffff, 
+		#ffffff);
+	background-blend-mode: normal, 
+		normal;
+	border-radius: 12rpx;
+    border: solid 2rpx #9164e7;
+    margin: 0 auto 24rpx;
+    display: block;
+    font-size: 34rpx;
+    color: #ffffff;
+    text-align: center;
+    line-height: 84rpx;
+}
+.hover_active{
+    opacity: 0.6;
+}
+.share{
+    width: 360rpx;
+	height: 84rpx;
+	background-color: #ffffff;
+	border-radius: 12rpx;
+    border: solid 2rpx #9164e7;
+    margin: 0 auto 60rpx;
+    display: block;
+    font-size: 34rpx;
+    color: #9164e7;
+    text-align: center;
+    line-height: 84rpx;
+}
+.back{
+	font-size: 30rpx;
+	font-weight: normal;
+	font-stretch: normal;
+	line-height: 70rpx;
+	letter-spacing: 1rpx;
+    color: #000000;
+    display: block;
+    width: 140rpx;
+    text-align: center;
+    margin: 0 auto;
+}

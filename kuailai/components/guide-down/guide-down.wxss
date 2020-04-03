@@ -1,0 +1,71 @@
+.content{
+    padding: 36rpx 30rpx 48rpx 30rpx;
+    background: #f5f5f5;
+   
+}
+.content .h3{
+    padding: 0 0 20rpx 11rpx;
+    font-family: PingFang-SC-Medium;
+    font-size: 28rpx;
+    font-weight: normal;
+    font-stretch: normal;
+    letter-spacing: 1rpx;
+    color: #999999;
+    padding-bottom: 20rpx;
+    display: block;
+}
+
+.section{
+    padding: 51rpx 31rpx 51rpx 34rpx;
+    width: 690rpx;
+	height: auto;
+	background-color: #ffffff;
+    border-radius: 12rpx;
+    margin:0 auto 30rpx;
+}
+
+.section .title {
+	font-family: PingFang-SC-Medium;
+	font-size: 28rpx;
+	font-weight: normal;
+	letter-spacing: 0rpx;
+    color: #333333;
+    width: 100%;
+    text-align: center;
+}
+.section .title .red{
+    font-size: 32rpx;
+	font-weight: normal;
+	letter-spacing: 0rpx;
+    color: #ec2f2b;
+    display: inline;
+}
+
+.section .btn{
+    width: 480rpx;
+	height: 88rpx;
+	line-height: 88rpx;
+	background-color: #ec2f2b;
+	border-radius: 44rpx;
+	font-family: PingFang-SC-Medium;
+	font-size: 30rpx;
+	font-weight: normal;
+	font-stretch: normal;
+    letter-spacing: 0rpx;
+    text-align: center;
+    color: #fff;
+    display: block;
+    margin: 41rpx auto 0;
+}
+
+.section .btn-hover{
+    opacity: 0.8;
+}
+
+.section.s3 image{
+    display: block;
+    width: 502rpx;
+	height: auto;
+	border-radius: 8rpx;
+    margin: 23rpx auto 0;
+}

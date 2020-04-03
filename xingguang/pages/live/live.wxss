@@ -1,0 +1,16 @@
+.img_wrap{
+    position: relative;
+}
+.img{
+    width: 100%;
+    display: block;
+    position: relative;
+}
+.placeholder{
+    position: absolute;
+    background: #eff3f6;
+    width: 80%;
+    left: 10%;
+    top: 15%;
+    height:70%;
+}

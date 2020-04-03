@@ -1,0 +1,83 @@
+
+<view class="body">
+    <text class="welcome_title" wx:if="{{danmuArr.length != 0}}">欢迎你来</text>
+    <text class="welcome_title" style="font-size:36rpx;" wx:else>还没有好友留言，快去分享吧</text>
+
+    <view class="avatar_wrap">
+        <image class="avatar_bg" src="../../static/index/avatar.png"></image>
+        <image class="avatar" src="{{toCommentAvatar}}"></image>
+    </view>
+
+    <view class="danmu">
+        <block wx:for="{{danmuArr}}" wx:key="danmuId">
+            <view class="danmu_li" 
+                animation="{{danmuAniData[index]}}" 
+                style="top: {{item.top}}px;"
+                bind:transitionend="aniend"
+                data-index="{{index}}">
+                <image class="u_avatar" src="{{item.headPic}}"></image>
+                <text class="comment">{{item.message}}</text>
+            </view>
+        </block>
+    </view>
+
+    <view class="speak_area">
+        <view class="input_outter">
+            
+            <button class="confirm" bindtap="sendMsg">确定</button>
+            <view class="input_hint_wrap">
+                <view class="input_hint" hidden="{{hideInputHint}}">
+                    <text class="ih_li" 
+                        wx:for="{{inputTips}}" 
+                        wx:key="index">{{item}}</text>
+                </view>
+                <!-- <text class="ih_li">#有谁喜欢我快点说</text>
+                <text class="ih_li">#最近心情很糟糕</text>
+                <text class="ih_li">#我是不是很酷</text>
+                <text class="ih_li">#你是不是暗恋我</text>
+                <text class="ih_li">#快说我最美</text>
+                <text class="ih_li">#觉着我哪里最好看</text> -->
+            </view>
+            <input 
+                bindblur="onInputBlur"
+                bindfocus="onInputFocus"
+                bindinput="onInputChange" 
+                id="danmuInput"
+                type="text" 
+                confirm-type="send" 
+                cursor-spacing="5" 
+                value="{{inputVal}}"
+                hidden="{{!hideLogin}}"/>
+        </view>
+        <view class="words_select clearfix" wx:if="{{currentMsgGroup.length != 0}}">
+            <view class="word_term" 
+                bindtap="checkWords"
+                data-msg="{{item}}"
+                hover-class="words_hover"
+                wx:for="{{currentMsgGroup}}"
+                wx:key="index">{{item}}</view>
+            <view class="change_word" 
+                hover-class="font-hover"
+                bindtap="changeWords">换一批</view>
+        </view>
+    </view>
+    
+    <view class="btn_func" wx:if="{{isMyComment}}">
+        <navigator class="btn btn_func_l" url="/pages/comment/comment">留言管理</navigator>
+        <view class="btn btn_func_r" bindtap="goShare" data-type="1">快让好友来倾诉吧</view>
+    </view>
+    <view class="btn_func" wx:else>
+        <view class="btn btn_func_l" bindtap="goShare" data-type="2">分享</view>
+        <view class="btn btn_func_r" bindtap="goToMyPage">创建我的匿名说</view>
+    </view>
+
+</view>
+
+<view class="login_layer" hidden="{{hideLogin}}">
+    <view class="mask"></view>
+    <view class="content">
+        <text class="title">授权登录</text>
+        <text class="desc">需要授权后才可以正常使用</text>
+        <button class="btn" open-type="getUserInfo" bindgetuserinfo="getAuthLogin" bindtap="checkNetwork">授权登录</button>
+    </view>
+</view>

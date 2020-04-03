@@ -1,0 +1,6 @@
+<view class="f_hint">
+    <view class="fh_title">
+        <slot></slot>
+    </view>
+    <button class="fh_btn" open-type="getUserInfo" bindgetuserinfo="login">登录</button>
+</view>

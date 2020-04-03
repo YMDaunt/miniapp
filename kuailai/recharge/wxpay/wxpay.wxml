@@ -1,0 +1,5 @@
+<view class="content">
+    <view class="title">支付金额</view>
+    <text class="money"><text class="unit">￥ </text>{{money}}</text>
+    <button class="btn" type="primary">{{payStatus}}</button>
+</view>

@@ -1,0 +1,18 @@
+<view>
+    <view class="img_wrap">
+        <view class="placeholder"></view>
+        <image class="img" src="{{imgs[0]}}" mode="widthFix" lazy-load="{{true}}"></image>
+    </view>
+    <view class="img_wrap">
+        <view class="placeholder"></view>
+        <image class="img" src="{{imgs[1]}}" mode="widthFix" lazy-load="{{true}}"></image>
+    </view>
+    <view class="img_wrap">
+        <view class="placeholder"></view>
+        <image class="img" src="{{imgs[2]}}" mode="widthFix" lazy-load="{{true}}"></image>
+    </view>
+    <view class="img_wrap">
+        <view class="placeholder"></view>
+        <image class="img" src="{{imgs[3]}}" mode="widthFix" lazy-load="{{true}}"></image>
+    </view>
+</view>

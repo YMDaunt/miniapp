@@ -1,0 +1,69 @@
+{
+	"description": "项目配置文件",
+	"packOptions": {
+		"ignore": []
+	},
+	"setting": {
+		"urlCheck": true,
+		"es6": true,
+		"postcss": true,
+		"minified": true,
+		"newFeature": true,
+		"autoAudits": false
+	},
+	"compileType": "miniprogram",
+	"libVersion": "2.4.0",
+	"appid": "wx81cc1a1d2fcbe6af",
+	"projectname": "guessSong",
+	"debugOptions": {
+		"hidedInDevtools": []
+	},
+	"isGameTourist": false,
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"currentL": -1,
+			"list": []
+		},
+		"miniprogram": {
+			"current": 3,
+			"list": [
+				{
+					"id": 0,
+					"name": "求助好友",
+					"pathName": "pages/guess/guess",
+					"query": "songId=20&sourceUserId=8&nickName=Jesse123123123"
+				},
+				{
+					"id": 1,
+					"name": "好友进入",
+					"pathName": "pages/pkFriend/pkFriend",
+					"query": "ald_share_src='123'&userInfo={\"avatarUrl\":\"https://wx.qlogo.cn/mmopen/vi_32/JTDcYbVcuO8ky2ApQWicDl4Jd4OJFyCqa8I5RMNyBn9E7HD3VDdtG0JNzBczDOL1y3uviapF9hE32piacmkRNYgPQ/132\",\"city\":\"Jiujiang\",\"country\":\"China\",\"gender\":1,\"language\":\"zh_CN\",\"nickName\":\"Jesse131\",\"province\":\"Jiangxi\",\"uid\":35}"
+				},
+				{
+					"id": 2,
+					"name": "pk进行中",
+					"pathName": "pages/pking/pking",
+					"query": "friend={\"avatarUrl\":\"https://wx.qlogo.cn/mmopen/vi_32/JTDcYbVcuO8ky2ApQWicDl4Jd4OJFyCqa8I5RMNyBn9E7HD3VDdtG0JNzBczDOL1y3uviapF9hE32piacmkRNYgPQ/132\",\"city\":\"Jiujiang\",\"country\":\"China\",\"gender\":1,\"language\":\"zh_CN\",\"nickName\":\"Jesse131\",\"province\":\"Jiangxi\",\"uid\":35}"
+				},
+				{
+					"id": 3,
+					"name": "pk结果",
+					"pathName": "pages/pkResult/pkResult",
+					"query": "pkId=72"
+				}
+			]
+		}
+	}
+}

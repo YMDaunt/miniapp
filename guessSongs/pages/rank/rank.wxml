@@ -1,0 +1,34 @@
+<!--pages/rank/rank.wxml-->
+<view class="container">
+  <view class="nav-list">
+    猜歌闯关
+  </view>
+  <scroll-view scroll-y class="rank-list">
+    <view wx:for="{{rank}}" wx:key="index" class='item'>
+      <view class="{{'index'+(index+1)}}" wx:if="{{index<3}}"></view>
+      <view class="index">{{index+1}}</view>
+      <view class="avatar-box">
+        <image src="{{item.avatarUrl}}"></image>
+      </view>
+      <view class="info">
+        <view class="name">{{item.nickName}}</view>
+        <!-- <view class="coin">x{{item.coin}}</view> -->
+      </view>
+      <view class="songNum">{{item.guessSongNum}}首</view>
+    </view>
+  </scroll-view>
+  <view class="my-list" wx:if="{{myRank}}">
+      <view class="index">{{myRank.rank}}</view>
+      <view class="avatar-box">
+        <image src="{{userInfo.avatarUrl}}"></image>
+      </view>
+      <view class="info">
+        <view class="name">{{userInfo.nickName}}</view>
+        <!-- <view class="coin">x{{myRank.coin}}</view> -->
+      </view>
+      <view class="songNum">{{myRank.guessSongNum}}首</view>
+    </view>
+    <view class="my-list" wx:else> 
+      <view class="notlist">暂未上榜</view>
+    </view>
+</view>

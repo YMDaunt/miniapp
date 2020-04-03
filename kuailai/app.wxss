@@ -1,0 +1,45 @@
+/**app.wxss**/
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 200rpx 0;
+  box-sizing: border-box;
+} 
+view, block, scroll-view, swiper, movable-view, cover-view, icon, text, rich-text, progress, button, checkbox, form, input, label, picker, picker-view, radio, slider, switch, textarea, navigator, audio, image, video, camera, live-player, live-pusher, map, canvas, open-data, webview, cover-view, cover-image{
+  box-sizing: border-box;
+}
+
+.clearfix{
+  display: block;
+}
+.clearfix:after{
+  content: '';
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.hide{
+  display: none;
+}
+
+/*列表已没数据提示*/
+.end_hint{
+  padding: 25rpx 0 40rpx;
+  display: flex;
+  align-items: center;
+  justify-content:center;
+}
+.end_hint .line{
+  border-top: 1px solid #d0d0d0;
+  width: 135rpx;
+  height: 1px;
+}
+.end_hint .text{
+  color: #848484;
+  font-size: 12px;
+  padding: 0 30rpx;
+}

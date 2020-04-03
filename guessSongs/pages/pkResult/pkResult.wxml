@@ -1,0 +1,29 @@
+<!--pages/pkResult/pkResult.wxml-->
+<view class="container">
+  <view class="vs">
+    <view class="me">
+      <view class="blue">
+        <view class="avatar-box">
+          <image src="{{me.avatarUrl}}"></image>
+        </view>
+      </view>
+      <view class="mScore">{{me.score}}分</view>
+      <view class="name">{{me.nickName}}</view>
+    </view>
+    <view class="friend">
+      <view class="red">
+        <view class="avatar-box">
+          <image src="{{friend.avatarUrl}}"></image>
+        </view>
+      </view>
+      <view class="fScore">{{friend.score}}分</view>
+      <view class="name">{{friend.nickName}}</view>
+    </view>
+  </view>
+  <view class="tie" wx:if="{{result === 'tie'}}"></view>
+  <view class="win" wx:if="{{result === 'win'}}"></view>
+  <view class="fail" wx:if="{{result === 'fail'}}"></view>
+  <view class=""></view>
+  <view class="continue" bindtap='continue'></view>
+  <button class="share" open-type='share'></button>
+</view>

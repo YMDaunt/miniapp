@@ -1,0 +1,43 @@
+<wxs src="../../utils/util.wxs" module="util"/>
+
+
+<login-page bindlogined="onLogin" wx:if="{{!isLogin && !lock}}">
+    <view>登录后可查看个人信息</view>
+</login-page>
+
+<block wx:if="{{isLogin && !lock}}">
+    <view class="avatar_wrap" style="background-color: {{util.getBgColor()}}">
+        <image src="{{userInfo.avatarUrl}}" class="avatar" mode="widthFix"></image>
+        <view class="info_wrap">
+            <text class="nickname">{{userInfo.nickname}}</text>
+            <text class="uid">ID:{{userInfo.uid}}</text>
+        </view>
+        <view class="mask"></view>
+    </view>
+
+    <view class="ul">
+        <navigator url="/recharge/index/index" class="li" bindtap="goRecharge" wx:if="{{mode==0}}">
+            <view class="li_wrap">
+                <image class="icon" src="../../static/img/usercenter/icon_1.png" mode="widthFix"></image>
+                <text>克拉</text>
+                <text class="li_coin_num">{{userInfo.coin}}</text>
+                <view class="recharge">
+                    <text decode="true">充值</text>
+                    <image class="arrow" src="../../static/img/usercenter/arrow.png"></image>
+                </view>
+            </view>        
+        </navigator>
+        <button class="li" open-type="contact" hover-class="active">
+            <view class="li_wrap">
+                <image class="icon" src="../../static/img/usercenter/icon_2.png" mode="widthFix"></image>
+                <text>联系客服</text>
+                <text class="li_coin_num small">发送信息“1”，点击收到的消息下载APP</text>
+                <view class="recharge">
+                    <image class="arrow" src="../../static/img/usercenter/arrow.png"></image>
+                </view>
+            </view>
+        </button>
+    </view>
+
+    <button class="logout hide" bindtap="logout">退出</button>
+</block>

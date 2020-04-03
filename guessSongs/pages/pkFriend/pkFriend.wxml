@@ -1,0 +1,37 @@
+<!--pages/pkFriend/pkFriend.wxml-->
+<view class="container">
+    <view class="await">
+        <view class="me">
+            <view class="blue">
+                <view class="avatar-box">
+                    <image src="{{userInfo.avatarUrl}}"></image>
+                </view>
+            </view>
+            <view class="name">{{userInfo.nickName}}</view>
+        </view>
+        <view class="vs-icon"></view>
+        <view class="friend">
+            <view class="name">{{friend.nickName}}</view>
+            <view class="red">
+                <view class="avatar-box">
+                    <image src="{{friend.avatarUrl}}"></image>
+                </view>
+            </view>
+            <view class="tag"></view>  
+        </view>
+    </view>
+    <view hidden="{{isReady}}">
+        <view class="tips">请准备开始PK</view>
+        <view class="group-btn">
+            <view class="giveup" bindtap='giveup'></view>
+            <button class="invite" open-type='share'></button>
+        </view>
+        <view class="ready-btn"  bindtap='ready'></view>
+    </view>
+    <view hidden="{{!isReady}}">
+        <view class="tips">等待对战开始...</view>
+        <view class="countDownTime">{{countDownNum}}</view>
+       <view class="readied"></view>
+    </view>
+
+</view>

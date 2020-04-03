@@ -1,0 +1,139 @@
+/* pages/rank/rank.wxss */
+
+.container {
+    padding: 0 30rpx;
+}
+
+.nav-list {
+    height: 130rpx;
+    line-height: 130rpx;
+    color: #fff;
+    font-size: 37rpx;
+}
+
+.rank-list {
+    max-height: 785rpx;
+}
+
+.item {
+    position: relative;
+    height: 132rpx;
+    background-color: #5d098c;
+    border-radius: 12rpx;
+}
+
+.item .index {
+    position: relative;
+    z-index: 1;
+    float: left;
+    width: 90rpx;
+    text-align: center;
+    color: #fff;
+    font-size: 30rpx;
+    line-height: 132rpx;
+}
+
+.item .index1 {
+    position: absolute;
+    top: 40rpx;
+    left: 20rpx;
+    width: 49rpx;
+    height: 65rpx;
+    z-index: 0;
+    background: url('//static.guojiang.tv/src/miniapp/guessSongs/index/index1.png') no-repeat 0 0 scroll;
+    background-size: cover;
+}
+
+.item .index2 {
+    position: absolute;
+    top: 40rpx;
+    left: 20rpx;
+    width: 49rpx;
+    height: 65rpx;
+    z-index: 0;
+    background: url('//static.guojiang.tv/src/miniapp/guessSongs/index/index2.png') no-repeat 0 0 scroll;
+    background-size: cover;
+}
+
+.item .index3 {
+    position: absolute;
+    top: 40rpx;
+    left: 20rpx;
+    width: 49rpx;
+    height: 65rpx;
+    z-index: 0;
+    background: url('//static.guojiang.tv/src/miniapp/guessSongs/index/index3.png') no-repeat 0 0 scroll;
+    background-size: cover;
+}
+
+.item .avatar-box, .my-list .avatar-box {
+    float: left;
+    width: 83rpx;
+    height: 83rpx;
+    margin: 25rpx;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+image {
+    width: 100%;
+    height: 100%;
+}
+
+.item .info, .my-list .info {
+    display: flex;
+    align-items: center;
+    float: left;
+    height: 132rpx;
+}
+
+.item .info .name, .my-list .info .name {
+    font-size: 34rpx;
+    color: #fff;
+}
+
+.item .info .coin, .my-list .info .coin {
+    font-size: 30rpx;
+    color: #ffdd48;
+}
+
+.item .info .coin::after, .my-list .info .coin::after {
+    content: "";
+    display: block;
+    float: left;
+    margin: 12rpx 10rpx 0 0;
+    width: 22rpx;
+    height: 24rpx;
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABYAAAAYCAYAAAD+vg1LAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMTM4IDc5LjE1OTgyNCwgMjAxNi8wOS8xNC0wMTowOTowMSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTcgKFdpbmRvd3MpIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOjM3RUVBNTkzRUUzRTExRTg5QTM3OTI5MDdFOEJBQUYwIiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOjM3RUVBNTk0RUUzRTExRTg5QTM3OTI5MDdFOEJBQUYwIj4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6MzdFRUE1OTFFRTNFMTFFODlBMzc5MjkwN0U4QkFBRjAiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6MzdFRUE1OTJFRTNFMTFFODlBMzc5MjkwN0U4QkFBRjAiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz6r1d7QAAABg0lEQVR42qzVzStEURjH8bm3IWliQ15KpERujRVllMJ+VhR2srG2Egs1pWws7P0FZmFD2cx4WVDKQpnFLOgqG1NKxEIY30fPYkx3zDl3nPo0c889/eaZ83Kv83XdHQnZNjGDuOP5r+U33Uj4No9ebAfdDBvchy79vljM9WzA+Y/gybLrVewSHqs1eCqgbxqnhLfIhRNi8eQvF9CIe3QiVnL/CqNhKo5DqtpDP5owgHU8YgjLbg3zm/0p3/OLyCOlP3QiO6bm4F9z5PlScRJR2+AoxnELP3ABPP+Zj5Rt8LDOaabKuLRt8ESlaSir+t0NsX+LODKZs6A+2T71uk8L2t+ABHJ4sAlu1704h2btk+rOsYI6Dc+arrK0EeyjNeCUJXSxLrQvYxrcgQM9TZWaVDuGT3kemATL4q1VCS1tl3gyDU5a7Iqs6UAJbrMIztgE3xiOvcOxTfCOwThZtCV82ATLyzD9x5gXfXEe2hxRV6uZxQLO8KaV5bGFQXmf2T5bvwUYAIU2UqNuLpmdAAAAAElFTkSuQmCC');
+    background-size: cover;
+}
+
+.item .songNum, .my-list .songNum {
+    float: right;
+    color: #fff;
+    font-size: 34rpx;
+    line-height: 132rpx;
+    margin-right: 50rpx;
+}
+
+.my-list {
+    height: 132rpx;
+    background-color: #410065;
+    border-radius: 12rpx;
+    color: #fff;
+    font-size: 34rpx;
+    text-align: center;
+}
+
+.my-list .notlist {
+    line-height: 132rpx;
+}
+
+.my-list .index {
+    float: left;
+    width: 90rpx;
+    text-align: center;
+    color: #fff;
+    font-size: 30rpx;
+    line-height: 132rpx;
+}

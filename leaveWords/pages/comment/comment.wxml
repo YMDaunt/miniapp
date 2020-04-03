@@ -1,0 +1,141 @@
+<view class="nav {{currentIndex == 0 ? 'active_l':'active_r'}}">
+    <view class="nav_bar nav_bar_l" bindtap="changeNav" data-index='0'>收到的留言</view>
+    <view class="nav_bar nav_bar_r" bindtap="changeNav" data-index='1'>发出的留言</view>
+    <view class="line"></view>
+</view>
+
+<swiper class="content"
+    bindchange="pageChange"
+    current="{{currentIndex}}">
+    <swiper-item class="swiper_item">
+        <scroll-view 
+            class="swiper_content" 
+            scroll-y
+            bindscrolltolower="onScrolltolower">
+
+            <block wx:for="{{receiveMsgArr}}" wx:key="id">
+                <view 
+                    class="li {{item.messageLockStatus==1?'unlock':''}}" 
+                    bindtap="showUnlockLayer"
+                    data-msgid="{{item.id}}"
+                    data-item="{{item}}"
+                    data-index="{{index}}">
+
+                    <image 
+                        class="avatar" 
+                        src="{{(item.messageLockStatus==0&&item.userId!=item.toUserId)?'../../static/comment/avatar.png':item.avatarUrl}}"></image>
+                    
+                    <view class="comment_text nickname" hidden="{{item.messageLockStatus==0}}">{{item.nickName}}：</view>
+                    <view class="comment_text">
+                        {{item.message}}
+                    </view>
+                </view>
+            </block>
+            
+            <button class="loading_btn" loading="true" hidden="{{!scrollFlag}}"> 加载中...</button>
+
+            <view class="end_hint" hidden="{{!receiveMsgEnd}}">
+                <view class="line"></view>
+                <text class="text">没有更多了哦</text>
+                <view class="line"></view>
+            </view>
+        </scroll-view>   
+    </swiper-item>
+    <swiper-item class="swiper_item swiper_item_send">
+        <scroll-view class="swiper_content" scroll-y
+            bindscrolltolower="onScrolltolower">
+            
+            <block 
+                wx:for="{{sendMsgArr}}" 
+                wx:key="id" >
+                <view class="li ">
+                    <view class="comment_text">
+                        对<text class="purple">{{item.nickName}}</text>说：{{item.message}}
+                    </view>
+                    <image class="avatar" src="{{item.avatarUrl}}"></image>
+                </view>
+            </block>
+
+            <button class="loading_btn" loading="true" hidden="{{!scrollFlag}}"> 加载中...</button>
+
+            <view class="end_hint" hidden="{{!sendMsgEnd}}">
+                <view class="line"></view>
+                <text class="text">没有更多了哦</text>
+                <view class="line"></view>
+            </view>
+        </scroll-view>
+    </swiper-item>
+</swiper>
+
+<view class="score" bindtap="showTaskLayer">
+    积分：{{myScore==-1?'--':myScore}}>
+</view>
+
+
+<!--积分任务-->
+<view class="task_layer" hidden="{{!showTask}}">
+    <view class="mask" bindtap="showTaskLayer"></view>
+    <view class="content">
+        <image class="close" src="../../static/comment/close.png"
+        bindtap="showTaskLayer"></image>
+        <view class="li">
+            <view class="task_desc">
+                <view class="task_name">签到</view>
+                <view class="task_score">积分+1</view>
+            </view>
+            <view class="btn readonly_btn" wx:if="{{taskList[0]['taskNum'] >= 1 && taskList[0]['taskStatus'] == 1 }}">已完成</view>
+            <view class="btn" wx:else bindtap="doMyTask" data-type="1">签到</view>
+        </view>
+        <view class="li">
+            <view class="task_desc">
+                <view class="task_name">给他人留言({{taskList[1]['taskNum']}}/3)</view>
+                <view class="task_score">积分+3</view>
+            </view>
+            <view class="btn readonly_btn" 
+                wx:if="{{taskList[1]['taskNum'] == 3&&taskList[1]['taskStatus'] == 1}}">已完成</view>
+            <view class="btn" 
+                wx:elif="{{taskList[1]['taskNum'] == 3&&taskList[1]['taskStatus'] == 0}}"
+                bindtap="finishTask" 
+                data-type="2">领取</view>
+            <view class="btn readonly_btn" wx:else>未完成</view>
+        </view>
+        <view class="li li_last">
+            <view class="task_desc">
+                <view class="task_name">邀请用户({{taskList[2]['taskNum']}}/2)</view>
+                <view class="task_score">积分+2</view>
+            </view>
+            <view class="btn readonly_btn" 
+                wx:if="{{taskList[2]['taskNum'] == 2&&taskList[2]['taskStatus'] == 1}}">已完成</view>
+            <view class="btn" 
+                wx:elif="{{taskList[2]['taskNum'] == 2&&taskList[2]['taskStatus'] == 0}}"
+                bindtap="finishTask" 
+                data-type="3">领取</view>
+            <navigator class="btn" wx:else url="/pages/poster/poster">去分享</navigator>
+        </view>
+    </view>
+</view>
+
+<!--解锁弹框-->
+<view class="task_layer" hidden="{{!showUnlock}}">
+    <view class="mask" bindtap="hideUnlockLayer"></view>
+    <view class="content">
+        <view class="title">
+            解锁匿名用户需消耗<text class="purple">5</text>积分
+        </view>
+        <text class="hint">当前积分：{{myScore==-1?'--':myScore}}</text>
+        
+        <view class="btn_wrap clearfix">
+            <view class="cancel" bindtap="hideUnlockLayer">取消</view>
+            <view class="unlock" bindtap="unlockMsg">解锁</view>
+        </view>
+    </view>
+</view>
+
+<navigator target="miniProgram" class="banner"
+    app-id="wx3490aef65724e32d"
+    path=""
+    extra-data="nimingshuo"
+    bindsuccess="onSkipMiniappSuccess"
+    bindfail="onSkipMiniappFail">
+    <image src="../../static/comment/banner.jpg" mode="widthFix"></image>
+</navigator>

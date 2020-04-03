@@ -1,0 +1,33 @@
+<!--index.wxml-->
+<view class="container">
+    <view class="userInfo" wx:if="{{hasUserInfo}}" bindtap='showTask'>
+        <view class="avatar">
+            <image src="{{userInfo.avatarUrl}}"></image>
+        </view>
+        <view class="info">
+            <view class="nickname">{{userInfo.nickName}}</view>
+            <view class="coin">x{{coin}}</view>
+        </view>
+    </view>
+    <view class="logo"></view>
+    <button wx:if="{{!hasUserInfo}}" class="login-btn" open-type="getUserInfo" bindgetuserinfo="getUserInfo"></button>
+    <block wx:else>
+        <navigator class="begin-btn" hover-class="navigator-hover" url="/pages/guess/guess?songId={{songId}}"></navigator>
+        <navigator class="rank-btn" hover-class="navigator-hover" url="/pages/rank/rank"></navigator>
+        <navigator class="pk-btn" hover-class="navigator-hover" url="/pages/pk/pk"></navigator>
+    </block>
+    <view class="task" wx:if="{{showTask}}">
+        <view class="task-content-box">
+            <view class="close" bindtap='closeTask'></view>
+            <view wx:for="{{task}}" wx:key="index" class="task-item {{item.type==5?'hasLimitTask':''}}" wx:if="{{item.type != 5 || item.taskStatus != 1}}">
+                <view class="item-content">
+                    <view class="limit-task" wx:if="{{index == 4}}">限时任务</view>
+                    <view class="title">{{item.title}}</view>
+                    <view class="prize">+{{item.prize}}</view>
+                </view>
+                <button class="task-btn" wx:if="{{index == 3}}" open-type='share'>{{item.message}}</button>
+                <view class="task-btn" wx:else bindtap='doTask' data-type="{{item.type}}" data-taskNum="{{item.taskNum}}">{{item.message}}</view>
+            </view>
+        </view>
+    </view>
+</view>

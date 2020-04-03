@@ -1,0 +1,29 @@
+.top_nav{
+	width: 750rpx;
+    background: #fff;
+    font-family: PingFang-SC-Medium;
+    font-size: 40rpx;
+    letter-spacing: 0rpx;
+    color: #000000;
+    text-align: center;
+}
+.top_nav .title_bar{
+    text-align: center;
+    position: relative;
+}
+.top_nav .title_bar .back_wrap{
+    width: 85rpx;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+.top_nav .title_bar .icon{
+    position: absolute;
+    left: 30rpx;
+    top: 50%;
+    transform: translateY(-50%);
+    display: block;
+    width: 20rpx;
+    height: 35rpx;
+}

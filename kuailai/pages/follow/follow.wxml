@@ -1,0 +1,60 @@
+<wxs src="../../utils/util.wxs" module="util"/>
+
+<view class="body">
+    <header title="我关注的" bindheaderload="onHeaderLoad"></header>
+
+    <login-page bindlogined="onLogin" wx:if="{{!isLogin && isLogin != -1}}">
+        <view>登录后可查看关注你喜欢的主播</view>
+    </login-page>
+
+    <view class="f_hint" hidden="{{items.length !== 0 || !isLogin || haveFollow}}">
+        <text class="fh_title">你关注的主播还没有开播哦</text>
+        <navigator class="fh_btn" url="/pages/index/index" open-type="switchTab">去看其他精彩直播</navigator>
+    </view>
+
+    <view class="ul" style="margin-top:{{headerH}}px;" hidden="{{items.length === 0 || !isLogin || !haveFollow}}">
+        <view class="li" 
+            wx:for="{{items}}" wx:key="index"
+            bindtap="goRoom"
+            data-mid="{{item.mid}}"
+            data-videourl="{{item.videoPlayUrl}}"
+            data-headpic="{{item.headPic}}">
+
+            <view class="avatar_wrap" style="background-color:{{util.getBgColor()}};">
+                <image class="avatar" src="{{item.headPic}}" mode="widthFix" lazy-load="true"></image>
+            </view>    
+
+            <view class="info_wrap">
+                <view class="t_live_icon">
+                    <image src="../../static/img/common/live_bg.png" class="bg"></image>
+                    <text>LIVE</text>
+                </view>
+                <view class="t_viewer_wrap">
+                    <image src="../../static/img/common/viewer_bg.png" class="bg"></image>
+                    <image class="eye_icon" src="../../static/img/common/icon_eye.png"></image>
+                    <text>{{item.onlineNum}}</text>
+                </view>
+
+                <view class="self_info">
+                    <view class="location">
+                        <image class="location_icon" src="../../static/img/common/icon_position.png"></image>
+                        <text>{{item.city}}</text>
+                    </view>
+    
+                    <text class="nickname">{{item.nickname}}</text>
+                    <text class="brief">{{item.signature}}</text>
+                </view>
+            </view>
+
+            <view class="mask"></view>
+        </view>
+    </view>
+
+    <button class="loading_btn" loading="true" hidden="{{!loadNextPage}}"> 加载中...</button>
+
+    <view class="end_hint" hidden="{{!isEnd}}">
+        <view class="line"></view>
+        <text class="text">没有更多了哦</text>
+        <view class="line"></view>
+    </view>
+</view>

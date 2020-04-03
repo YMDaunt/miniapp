@@ -1,0 +1,435 @@
+<wxs src="../../utils/util.wxs" module="util"/>
+<!--视频加载出来前的高斯模糊图-->
+<view class="cover_poster">
+    <image class=" player_bg" src="{{mHeadPic}}" style="width:{{postBgWidth}}px;"></image>
+</view>
+<!--pk时的桌面背景-->
+<view class="cover_poster" hidden="{{hidePKBg}}">
+    <image class=" player_bg player_pk_bg" src="../../static/img/room/bg.jpg"></image>
+</view>
+
+<live-player id="myPlayer" class="video_player {{isShowMiniVideo?'video_player_mini':''}}" src="{{videoUrl}}" 
+    object-fit="fillCrop"
+    autoplay 
+    bindstatechange="onVideoStatechange" 
+    binderror="onVideoError"  
+    style="bottom: {{pkVideoBottom==0?(videoUpSlideDistance+'rpx'):pkVideoBottom+'px'}};height: {{pkVideoHeight}};">
+    <!--全屏背景，会覆盖在视频之上, cover-image不支持高斯模糊，所以增加视频和高斯模糊图片cover_poster的显隐状态切换-->
+    <!--pk时的视频poster-->
+    <cover-image class="player_bg" 
+        src="{{mHeadPic}}" 
+        hidden="{{hideVideoMask}}" 
+        style="width:750rpx;height:750rpx;"></cover-image>
+    
+</live-player>
+
+<cover-view class="content" style="bottom: {{videoUpSlideDistance}}rpx;"  >
+    <!--左上角主播信息胶囊-->
+    <cover-view class="info_capsule clearfix" style="margin-top: {{statusBarH}}px;">
+        <cover-view class="avatar_wrap" hover-class="active" bindtap="toggleModeratorCard">
+            <cover-image class="avatar" src="{{mInfo.headPic}}"></cover-image>
+            <cover-image class="v_icon" src="../../static/img/room/icon_v.png" wx:if="{{mInfo.verified}}"></cover-image>
+        </cover-view>
+
+        <cover-view class="ic_desc" hover-class="active" bindtap="toggleModeratorCard">
+            <cover-view>{{mInfo.nickname}}</cover-view>
+            <cover-view class="viewer">观众{{mInfo.onlineNum}}</cover-view>
+        </cover-view>
+
+        <cover-view class="ic_follow" hover-class="active" 
+            wx:if="{{!mInfo.isAttention}}"
+            bindtap="goFollow"
+            data-type="icbtn">关注</cover-view>
+    </cover-view>
+
+    <!--直播间滑动区域，用于上下滑动切换直播间-->
+    <cover-view class="switchRoomtouchArea" bindtouchstart="ontouchstart" bindtouchmove="ontouchmove" bindtouchend="ontouchend"></cover-view>
+
+    <!--聊天信息显示区域-->
+    <cover-view class="chat_area" scroll-top="{{platform == 'ios'?'':scrolltop}}" hidden="{{!mInfo.isPlaying}}">
+        <cover-view class="chat_ul {{platform == 'ios'?'chat_ul_ios':''}}">
+            <cover-view class="chat_li_wrap">
+                
+                <block wx:for="{{chatMsg}}" wx:key="msgId">
+                <!--本地定时系统消息-->
+                <cover-view class="chat_li" wx:if="{{item.msgType == flag.INTERVAL_SYSTEM_MSG}}">
+                    <cover-view class="speak blue">
+                        {{util.filterHtml(item.msg)}}
+                        <cover-view class="speak white absolute">系统消息：</cover-view>
+                    </cover-view>
+                    
+                </cover-view>
+                <!--系统消息-->
+                <cover-view class="chat_li" wx:if="{{item.msgType == flag.SYSTEM_MSG}}">
+                    <cover-view class="speak">{{util.filterHtml(item.msg)}}</cover-view>
+                </cover-view>
+                <!--管理员设置-->
+                <cover-view class="chat_li" wx:if="{{item.msgType == flag.SET_ADMIN_MSG}}">
+                    <cover-view class="speak">{{item.msg.setAdminNickname}}被 {{item.msg.operatorNickname}} 设置为管理</cover-view>
+                </cover-view>
+                <cover-view class="chat_li" wx:if="{{item.msgType == flag.UNSET_ADMIN_MSG}}">
+                    <cover-view class="speak">{{item.msg.unsetAdminNickname}}被 {{item.msg.operatorNickname}} 取消管理</cover-view>
+                </cover-view>
+                <!--用户进入直播间-->
+                <cover-view class="chat_li" wx:if="{{item.msgType == flag.USER_IN_MSG}}">
+                    <cover-image class="level" src="../../static/img/common/level/({{item.msg.level}}).png"></cover-image>
+                    <cover-view class="nickname">{{item.msg.nickname}} </cover-view>
+                    <cover-view class="speak"> 来了</cover-view>
+                </cover-view>
+                <!--信息提示-->
+                <cover-view class="chat_li" wx:if="{{item.msgType == flag.TIP_MSG || item.msgType == flag.TIP_GIFT_MSG}}">
+                    <cover-view class="speak">{{item.msg}}</cover-view>
+                </cover-view>
+                <!--送花-->
+                <cover-view class="chat_li" wx:if="{{item.msgType == flag.SEND_FLOWER_MSG}}">
+                    <cover-image class="level" src="../../static/img/common/level/({{item.msg.level}}).png"></cover-image>
+                    <cover-view class="nickname">{{item.msg.nickname}} </cover-view>
+                    <cover-view class="speak">送了心</cover-view>
+                </cover-view>
+                <!--等级升级提示-->
+                <cover-view class="chat_li" wx:if="{{item.msgType == flag.LEVEL_INCREASE_MSG}}">
+                    <cover-view class="speak">恭喜</cover-view>
+                    <cover-image class="level" src="../../static/img/common/level/({{item.msg.level}}).png"></cover-image>
+                    <cover-view class="nickname">{{item.msg.nickname}} </cover-view>
+                    <cover-view class="speak">升到 {{util.parseIntNum(item.msg.level) + 1}} 级</cover-view>
+                </cover-view>
+                <!--聊天消息-->
+                <cover-view class="chat_li" wx:if="{{item.msgType == flag.TALK_MSG}}">
+                    <cover-image class="level" src="../../static/img/common/level/({{item.msg.fromLevel}}).png"></cover-image>
+                    <cover-view class="nickname">{{item.msg.fromNickname}} </cover-view>
+                    <cover-view class="speak" wx:if="{{item.msg.toUid != 0}}">对 </cover-view>
+                    <cover-image class="level" src="../../static/img/common/level/({{item.msg.toLevel}}).png" wx:if="{{item.msg.toUid != 0}}"></cover-image>
+                    <cover-view class="nickname" wx:if="{{item.msg.toUid != 0}}">{{item.msg.toNickname}} </cover-view>
+                    <cover-view class="speak">说：</cover-view>
+                    <cover-view class="speak">{{item.msg.msg}}</cover-view>
+                </cover-view>
+                <!--送礼消息-->
+                <cover-view class="chat_li" wx:if="{{item.msgType == flag.SEND_GIFT_MSG}}">
+                    <cover-image class="level" src="../../static/img/common/level/({{item.msg.fromLevel}}).png"></cover-image>
+                    <cover-view class="nickname">{{item.msg.fromNickname}} </cover-view>
+                    <cover-view class="speak">送：</cover-view>
+                    <cover-image class="gift_img" src="{{item.msg.giftPic}}"></cover-image>
+                    <cover-view class="speak">X{{item.msg.num}}个</cover-view>
+                </cover-view>
+                </block>
+            </cover-view>
+        </cover-view>
+    </cover-view>
+
+    <!--底部功能区-->
+    <cover-view class="footer_func" hidden="{{!hideChatInputArea || showGiftsAndHideFunc}}">
+        <!--hover-class只支持cover-view-->
+        <!--聊天按钮-->
+        <cover-view class="chat_wrap" 
+            hover-class="active"
+            hidden="{{hideFooterFuncArea}}">
+            <cover-image class="chat" src="../../static/img/room/chat_icon.png" 
+                bindtap="showChatInputLayer"></cover-image>
+            <button class="login_btn" open-type="getUserInfo" 
+                bindgetuserinfo="chatWithLoginAuth"
+                wx:if="{{!isLogin}}">
+                <cover-image class="login_img" src="../../static/img/room/chat_icon.png"></cover-image>
+            </button>
+        </cover-view>
+        <!--下载引导按钮-->
+        <cover-view class="down_guide_wrap" 
+            hover-class="active" 
+            bindtap="goDownloadPage"
+            hidden="{{hideFooterFuncArea || hideDownBtn}}">
+            <cover-image class="down_guide" src="../../static/img/room/down_guide.png"></cover-image>
+        </cover-view>
+        <!--礼物按钮-->
+        <cover-view 
+            class="gift_icon_wrap" 
+            hover-class="active"
+            hidden="{{hideFooterFuncArea}}"
+            wx:if="{{mode==0}}">
+            <cover-image class="gift" 
+                src="../../static/img/room/gift_icon.png"
+                bindtap="toggleGiftsArea"></cover-image>
+            <button class="login_btn" open-type="getUserInfo" 
+                bindgetuserinfo="giftsWithLoginAuth"
+                wx:if="{{!isLogin}}">
+                <cover-image class="login_img" src="../../static/img/room/gift_icon.png"></cover-image>
+            </button>
+        </cover-view>
+        <!--分享按钮-->
+        <cover-view class="share_wrap" 
+            hover-class="active"
+            hidden="{{hideFooterFuncArea}}">
+            <!--button内必须有内容，不能为空标签，否则不显示-->
+            <button open-type="share" class="share_btn">
+                <cover-image class="share" src="../../static/img/room/share_icon.png"></cover-image>
+            </button>
+        </cover-view>
+        <!--关闭直播间按钮-->
+        <cover-view class="room_close_btn close_wrap" hover-class="active" bindtap="closeRoom">
+            <cover-image class="close" src="../../static/img/room/close_icon.png"></cover-image>
+        </cover-view>
+    </cover-view>
+
+    <!--礼物显示时的遮罩层-->
+    <cover-view class="gift_area_mask" hidden="{{hideGiftsArea}}" bindtap="toggleGiftsArea"></cover-view>
+    <cover-view class="gift_area_mask" hidden="{{hideChatInputArea}}" bindtap="hideChatInputLayer"></cover-view>
+</cover-view>
+
+  <!--休息中-->
+<cover-view class="rest_area" hidden="{{mInfo.isPlaying || isHideRestArea}}">
+    <cover-image class="rest_logo" src="../../static/img/room/rest.png"></cover-image>
+    <cover-view class="rest_title">主播正在休息中~</cover-view>
+    
+    <cover-view class="rest_recommend_title">正在热播</cover-view>
+    <cover-view class="rest_ul clearfix">
+            <cover-view class="rest_li" 
+                bindtap="goRoom"
+                data-mid="{{item.mid}}"
+                data-videourl="{{item.videoPlayUrl}}"
+                data-headpic="{{item.headPic}}"
+                wx:for="{{restRecommendItems}}"
+                wx:key="index">
+        
+                <cover-view class="img_wrap" style="background-color:{{util.getBgColor()}};">
+                    
+                    <cover-image class="avatar" src="{{util.filterHttp(item.headPic)}}" mode="widthFix" lazy-load="true"></cover-image>
+                    <cover-view class="info_wrap">
+                        <cover-view class="nickname">{{item.nickname}}</cover-view>
+                        <cover-view class="info">
+                            <cover-view class="location_wrap">
+                                <cover-image class="position_icon" src="../../static/img/common/icon_position.png" ></cover-image>
+                                <cover-view class="position">{{item.city}}</cover-view>
+                            </cover-view>
+        
+                            <cover-view class="viewer_wrap">
+                                <cover-view class="viewer">{{item.onlineNum}}</cover-view>
+                            </cover-view>
+                        </cover-view>
+        
+                        <cover-view class="mask"></cover-view>
+                    </cover-view>
+                </cover-view>	
+                
+            </cover-view>
+        </cover-view>
+</cover-view>
+
+<!--主播信息卡-->
+<cover-view class="info_card_wrap" hidden="{{hideMInfoCard}}">
+    <cover-view class="mask" bindtap="toggleModeratorCard"></cover-view>
+    
+    <cover-view class="info_card_wrapper">
+        <cover-view class="info_card">
+            <cover-view class="report" bindtap="goReport" hover-class="report_hover">举报</cover-view>
+            <cover-view class="id_num">ID:{{mInfo.mid}}</cover-view>
+            <cover-view class="nickname">{{mInfo.nickname}}</cover-view>
+            <cover-view class="brief">{{mInfo.announcement}}</cover-view>
+            
+            <cover-view hidden="{{hideMCardContent}}">
+                <cover-view class="ic_num_wrap">
+                    <cover-view class="ic_content">
+                        <cover-view class="ic_content_num">{{mInfo.attentionNum}}</cover-view>
+                        <cover-view class="ic_content_text">关注</cover-view>
+                    </cover-view>
+                    <cover-view class="ic_content">
+                        <cover-view class="ic_content_num">{{mInfo.fansNum}}</cover-view>
+                        <cover-view class="ic_content_text">粉丝</cover-view>
+                    </cover-view>
+                    <cover-view class="ic_content">
+                        <cover-view class="ic_content_num">{{mInfo.flowerNumber}}</cover-view>
+                        <cover-view class="ic_content_text">爱心</cover-view>
+                    </cover-view>
+                </cover-view>
+            </cover-view>
+        </cover-view>
+
+        <cover-view class="ic_avatar_wrap">
+            <cover-image class="ic_avatar" src="{{mInfo.headPic}}"></cover-image>
+            <cover-image class="v_icon" src="../../static/img/room/icon_v.png" wx:if="{{mInfo.verified}}"></cover-image>
+        </cover-view>
+    </cover-view>
+</cover-view>
+
+<!--礼物栏 start-->
+<view class="gift_wrap" hidden="{{hideGiftsArea}}">
+    <!--头部说明-->
+    <view class="gw_header">
+        <view class="gw_hint">小程序不支持动画效果，完整内容请下载APP</view>
+        <view class="gw_recharge" bindtap="goRechargePage">
+            <view class="red">充值：</view>
+            <view class="remain_coin">{{uInfo.coin}}</view>
+            <cover-image class="right_arrow" src="../../static/img/room/right_arrow_icon.png"></cover-image>
+        </view>
+    </view>
+    
+
+    <!--底部功能选择-->
+    <view class="send_btn_wrap">
+        <view class="send_num_btn" hover-class="active"
+            bindtap="toggleGiftNumBox">
+            <view class="send_num">{{sendGiftNum}}</view>
+            <image class="arrow" src="../../static/img/room/right_arrow_icon.png"></image>
+        </view>
+        <view class="send_btn" hover-class="active" bindtap="sendGift">
+            赠送
+        </view>
+
+    </view>
+    <view class="gift_preview" hidden="{{previewGiftUrl == ''}}">
+        <image class="gift_pre_img" src="{{previewGiftUrl}}"></image>
+    </view>
+
+</view>
+<!--礼物栏 end-->
+
+<!--礼物区域-->
+<swiper indicator-dots="{{!isHideGiftsPlaceholder}}" class="gift_scroll_area " hidden="{{hideGiftsArea}}">
+    <swiper-item wx:if="{{isHideGiftsPlaceholder}}">
+            <view class="gift_scroll_ul clearfix gsu_placeholder">
+                <view 
+                    class="gift_scroll_item"
+                    wx:for="{{[1,2,3,4,5,6,7,8]}}"
+                    wx:key="index"
+                    >
+                    <view class="gift_img_wrap">
+                    </view>
+                    <view class="gift_name"></view>
+                    <view class="gift_price"></view>
+                </view>
+            
+            </view>
+    </swiper-item>
+    
+    <block 
+        wx:for="{{giftsSwiperArr}}" 
+        wx:for-index="i" 
+        wx:for-item="giftsItem" 
+        wx:key="i"
+        wx:if="{{!isHideGiftsPlaceholder}}"
+        >
+    <swiper-item>
+            <view class="gift_scroll_ul clearfix">
+                <view 
+                    class="gift_scroll_item {{(giftSelectedIndex==index&&giftSelectedItem==i) ? 'active':''}}"
+                    hover-class="hover"
+                    wx:for="{{giftsItem}}"
+                    wx:key="index"
+                    bindtap="selectGifts" 
+                    data-itemindex="{{i}}"
+                    data-index="{{index}}"
+                    data-pid="{{item.id}}"
+                    data-img="{{item.img}}"
+                    >
+                    <view class="gift_img_wrap">
+                        <image class="gift_img" src="{{util.filterHttp(item.img)}}" lazy-load="{{true}}"></image>
+                    </view>
+                    <view class="gift_name">{{item.name}}</view>
+                    <view class="gift_price">{{item.price}} 克拉</view>
+                </view>
+            
+            </view>
+    </swiper-item>
+    </block>
+</swiper>
+
+<!--礼物数量选择框, 为了不被礼物框截断，移除数量选择框-->
+<cover-view class="giftnum_select_wrap" hidden="{{hideGiftNumBox}}">
+    <cover-view class="gsb_mask" bindtap="toggleGiftNumBox"></cover-view>
+    <cover-view class="giftnum_select_box">
+        <cover-view class="gsb_li" hover-class="active" 
+            wx:for="{{giftsNumType}}"
+            wx:key="index"
+            bindtap="selectGiftNum" 
+            data-num="{{item.num}}">
+            <cover-view class="gsb_li_num">{{item.num}}</cover-view>
+            <cover-view class="gsb_li_desc">{{item.content}}</cover-view>
+            <cover-view class="gsb_li_border"></cover-view>
+        </cover-view>
+        <cover-image class="gsb_li_arrow" src="../../static/img/room/arrow.png"></cover-image>
+    </cover-view>
+</cover-view>
+
+<!--键盘输入框-->
+<view class="chat_input_area"  hidden="{{hideChatInputArea}}">
+    <view class="chat_input_wrap">
+        <!--输入框和临时输入框-->
+        <input type="text" placeholder="点击输入文字聊天" 
+            confirm-type="send"
+            confirm-hold
+            class="chat_input" 
+            placeholder-class="input_placeholder"
+            hidden="{{hideChatInputArea}}"
+            value="{{inputVal}}"
+            focus="{{inputFocus}}"
+            bindblur="onInputBlur"
+            bindinput="bindKeyInput"
+            bindconfirm="confirmChat"
+            />
+        <!--表情icon-->
+        <view class="face_icon_wrap" bindtap="showFacesArea">
+            <image class="face_img" src="../../static/img/room/icon_face.png"></image>
+        </view>
+        <view class="line"></view>
+        <view class="send_btn" 
+            bindtap="sendMsg">发送</view>
+    </view>
+    <view class="face_area clearfix" hidden="{{hideFacesArea}}">
+        <view class="face_icon_wrap" 
+            wx:for="{{faces}}" wx:key="index"
+            data-index="{{index}}"
+            bindtap="chooseFace">
+            <image class="face_icon" 
+                src="{{item.img}}" lazy-load="{{true}}"></image>
+        </view>
+    </view>
+</view>
+
+<!--登录弹框组件-->
+<cover-view hidden="{{hideLoginLayer}}" class="login_wrapper">
+    <login bindclose="onLoginLayerClose" class="login_component" bindlogined="onUserLogined"></login>
+</cover-view>
+
+<!--10s后强制登录弹框组件-->
+<cover-view hidden="{{strongHintLoginLayer}}" class="login_wrapper">
+    <login class="login_component" bindlogined="onUserLogined" type="2" hideCloseBtn="{{true}}"></login>
+</cover-view>
+
+<!--关注主播提示弹框-->
+<cover-view class="follow_hint_wrap" hidden="{{isHideFollowHintLayer}}">
+    <cover-view class="fh_mask" bindtap="hideFollowHintLayer"></cover-view>
+    <cover-view class="fh_content">
+        <cover-image class="title" src="../../static/img/room/follow_title.png"></cover-image>
+        <cover-view class="fh_btn_wrap">
+            <cover-view class="fh_btn_cancel btn" 
+                hover-class="active"
+                bindtap="doNotFollow">下次再说</cover-view>
+            <cover-view class="fh_btn_ok btn" 
+                hover-class="active" 
+                bindtap="goFollow" 
+                data-type="layer"
+                wx:if="{{isLogin}}">关注</cover-view>
+            <button class="fh_btn_ok" 
+                open-type="getUserInfo" 
+                bindgetuserinfo="followWithLoginAuth"
+                wx:else>关注</button>
+        </cover-view>
+    </cover-view>
+</cover-view>
+
+<!--付费弹幕飘屏-->
+<cover-view class="inform_wrap" 
+    wx:for="{{informData}}"
+    wx:key="index"
+    animation="{{informAnimation[index]}}"
+    style="bottom:{{index%2==0?'450': '545'}}rpx;">
+    <cover-view class="inform_avatar_wrap">
+        <cover-image class="avatar" src="{{item.headPic}}"></cover-image>
+        <cover-image class="v_icon" src="../../static/img/room/icon_v.png" wx:if="{{mInfo.verified}}"></cover-image>
+    </cover-view>
+    <cover-view class="inform_info_wrap">
+        <cover-view class="nickname_wrap">
+            <cover-view class="nickname">{{item.nickname}}</cover-view>
+            <cover-image class="level" src="../../static/img/common/level/({{item.level}}).png"></cover-image>
+        </cover-view>
+        <cover-view class="msg">{{item.msg}}</cover-view>
+    </cover-view>
+    <cover-image class="corner_mark_icon" src="../../static/img/room/inform_icon.png"></cover-image>
+</cover-view>

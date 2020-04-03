@@ -1,0 +1,69 @@
+<!--pages/guess/guess.wxml-->
+<view class="container">
+    <view class="myCoin">x{{coin}}</view>
+    <view class="from-help" wx:if="{{sourceUserId}}">快帮
+        <text>{{sourceNickName}}</text>听听吧</view>
+    <view class="sequence" wx:else>第
+        <text>{{indexId+1}}</text>首</view>
+    <view class="disk">
+        <view class="tape {{playState?'play':'pause'}}"></view>
+        <view class="play-btn {{playState?'play':'pause'}}" bindtap='playOrPause'></view>
+    </view>
+    <view class="tips-help">
+        <view class="tips" bindtap='getTips'><text>提示 -60</text>
+            <view class="deduct {{showDeduct?'ani':''}}">-60</view>
+        </view>
+        <button class="help" open-type="share" data-type="help" wx:if="{{!sourceUserId}}">求助好友</button>
+    </view>
+    <view class="answer">
+        <view wx:for="{{answer}}" wx:key="index" class="{{item.font?'checked':''}} {{currentIndex === index && !item.font?'current':''}} {{wrongTips?'shake':''}}" bindtap='back' data-index="{{index}}" data-pindex="{{item.pIndex}}">{{item.font}}</view>
+        <view class="clear" bindtap='clear'></view>
+    </view>
+    <view class="pools clearfix" wx:if="{{!sourceUserId}}">
+        <view wx:for="{{pools}}" wx:key="index" bindtap='select' data-item="{{item.font}}" data-index="{{index}}" class="{{item.used?'used':''}}">{{item.font}}</view>
+    </view>
+    <form bindsubmit="formSubmit" report-submit='true' class="form clearfix" wx:else>
+        <button form-type="submit" wx:for="{{pools}}" wx:key="index" bindtap='select' data-item="{{item.font}}" data-index="{{index}}" class="{{item.used?'used':''}}">{{item.font}}</button>
+    </form>
+    <view class="danmu" hidden="{{!showDanmu}}">
+        <block wx:for="{{danmuArr}}" wx:key="danmuId">
+            <view class="danmu_li" 
+                animation="{{danmuAniData[index]}}" 
+                style="top: {{item.top}}px;"
+                bind:transitionend="aniend"
+                data-index="{{index}}">
+                <image class="u_avatar" src="{{item.headPic}}"></image>
+                <text class="answerString">{{answerString}}</text>
+            </view>
+        </block>
+    </view>
+    <view style="background-image:url('{{ad}}')" class="ad" bindtap='toMiniapp'></view>
+    <view class="result" wx:if="{{showResult}}">
+        <view class="result-content">
+            <view class="panel">
+                <view class="title"></view>
+                <view class="sequence">第
+                    <text>{{indexId+1}}</text>首</view>
+                <view class="answerString">{{answerString}}</view>
+                <view class="prize">+20</view>
+            </view>
+            <button class="share" open-type="share"></button>
+            <view class="nextSong" hover-class="navigator-hover" bindtap='getNextSong'></view>
+        </view>
+    </view>
+    <view class="help-result" wx:if="{{showHelpResult}}">
+        <view class="result-content">
+            <view class="panel" wx:if="{{!didSong}}">
+                <view class="title"></view>
+                <view class="sequence">第
+                    <text>{{indexId+1}}</text>首</view>
+                <view class="answerString">{{answerString}}</view>
+                <view class="thanks">哇，你真厉害</view>
+            </view>
+            <view class="did-panel" wx:else>
+                <view>这个歌曲你已经回答过了</view>
+            </view>
+            <navigator class="myGuess" hover-class="navigator-hover" url="/pages/guess/guess?songId={{mySongId}}"></navigator>
+        </view>
+    </view>
+</view>

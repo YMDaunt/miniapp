@@ -1,0 +1,40 @@
+<!--pages/pk/pk.wxml-->
+<view class="container">
+  <view class="await">
+    <view class="me">
+      <view class="blue">
+        <view class="avatar-box">
+          <image src="{{userInfo.avatarUrl}}"></image>
+        </view>
+      </view>
+      <view class="name">{{userInfo.nickName}}</view>
+    </view>
+    <view class="vs-icon"></view>
+    <view class="friend">
+      <view class="name">{{friend.nickName}}</view>
+      <view class="red">
+        <view class="avatar-box">
+        <image src="{{friend.avatarUrl}}"></image>
+      </view>
+      </view>
+    </view>
+  </view>
+  <view class="tips" hidden="{{showStartBtn}}">等待对手入场…</view>
+  <view class="countDownTime" hidden="{{!showStartBtn}}">{{countDownNum}}</view>
+  <view class="group-btn">
+    <view class="giveup" bindtap='giveup'></view>
+    <button class="invite" open-type='share'></button>
+  </view>
+  <view class="start-btn" bindtap='start' hidden="{{!showStartBtn}}"></view>
+  <view class="rules" wx:if="{{showRules}}">
+    <view class="rules-content">
+      <view class="rules-panel">
+        <view class="title"></view>
+        <view class="text">1、好友进入并准备后，可开始游戏；</view>
+        <view class="text">2、一局共6道音乐题，答对+100分，答错不扣分；</view>
+        <view class="text">3、两方只要有一方先答完，游戏结束，分数高的一方获胜。</view>
+      </view>
+      <view class="know" bindtap='know'></view>
+    </view>
+  </view>
+</view>

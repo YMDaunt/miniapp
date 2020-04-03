@@ -1,0 +1,23 @@
+{
+    "pages": [
+        "pages/index/index",
+        "pages/pking/pking",
+        "pages/pkResult/pkResult",
+        "pages/guess/guess",
+        "pages/pk/pk",
+        "pages/pkFriend/pkFriend",
+        "pages/rank/rank"
+    ],
+    "window": {
+        "backgroundTextStyle": "light",
+        "navigationBarBackgroundColor": "#640ca8",
+        "navigationBarTitleText": "明星歌曲猜猜看",
+        "navigationBarTextStyle": "#fff",
+        "disableScroll": true
+    },
+    "debug": true,
+    "navigateToMiniProgramAppIdList": [
+        "wx3490aef65724e32d",
+        "wx3e243db8c813e21e"
+    ]
+}

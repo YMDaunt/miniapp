@@ -1,0 +1,47 @@
+/** 
+ * 获取随机背景颜色
+*/
+var getBgColor = function(){
+    var bgColors = ['#c3b19d','#a3a7b9','#8fb3bf','#bdaba9','#b7adad','#dbbfb3'];
+    var len = bgColors.length
+    var randomIndex = parseInt(Math.random()*len)
+    
+    return bgColors[randomIndex]
+}
+
+/** 
+ * 过滤http为https
+*/
+var filterHttp = function(str){
+    if (str) {
+        // 需要用到小程序自带的转换正则函数
+        var regExp = getRegExp("^http:", "i")
+        return str.replace(regExp, 'https:')
+    }
+}
+
+/** 
+ * parseInt函数
+*/
+var parseIntNum = function(str){
+    return parseInt(str)
+}
+
+/** 
+ * 过滤html标签
+ * 场景：直播间系统消息，过滤html标签
+*/
+var filterHtml = function(str){
+    if(str == undefined) return
+    str = typeof(str) == 'string' ? str : JSON.stringify(str)
+    
+    var regExp = getRegExp("<[^>]*>", "ig")
+    return str.replace(regExp, '')
+}
+
+module.exports = {
+    getBgColor: getBgColor, 
+    filterHttp: filterHttp,
+    parseIntNum: parseIntNum,
+    filterHtml: filterHtml
+}
